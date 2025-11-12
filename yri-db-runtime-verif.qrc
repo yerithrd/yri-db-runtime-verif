@@ -1,7 +1,10 @@
 <RCC>
   <qresource>
+	<file>EN_template_CONSOLE_RAW_LOG_TEX_document.tex</file>
 	<file>EN_template_EVENT_LOG_TEX_document.tex</file>
 		
+	<file>yri-db-runtime-verif-images/STOP_current_running_daemon_service_process_ON_THIS_DEVICE_computer.png</file>
+	<file>yri-db-runtime-verif-images/YRI-analysis-report-for-currently-selected-event.png</file>
 	<file>yri-db-runtime-verif-images/export-csv-data-icon.png</file>
 	<file>yri-db-runtime-verif-images/question.png</file>
 	<file>yri-db-runtime-verif-images/folder-sort.svg.png</file>
@@ -10,8 +13,6 @@
 	<file>yri-db-runtime-verif-images/SQL-event-partial-log.png</file>
 	<file>yri-db-runtime-verif-images/PRINT-event-log.png</file>
 	<file>yri-db-runtime-verif-images/print-selected-event-log-sequences.png</file>
-	<file>yri-db-runtime-verif-images/Start-logging.png</file>
-	<file>yri-db-runtime-verif-images/Stop-logging.png</file>
 	<file>yri-db-runtime-verif-images/select-SQL-event-for-search-filtering.png</file>
 	<file>yri-db-runtime-verif-images/pdf-print-icon.svg</file>
 	<file>yri-db-runtime-verif-images/YRI-DB-RUNTIME-VERIF-hidden-button-SQL-QUERY-RECOVERY-show-view.png</file>

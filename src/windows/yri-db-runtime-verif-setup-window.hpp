@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-setup-window.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_SETUP_WINDOW_HPP_
@@ -42,19 +42,6 @@ public:
 
 
 public slots:
-
-    virtual void ON_STOP__logging__SUT_ACTIONS();
-
-
-    virtual void ON_START__logging__SUT_ACTIONS();
-
-
-    virtual void Set_A_SUT_comboBox_SUT_identification(QString &a_sut_identification)
-    {
-        comboBox_SUT_identification
-            ->find_AND_SET_CURRENT_INDEX(a_sut_identification.trimmed());
-    }
-
 
 	virtual void set_connection_DBUS_status(QString	message_STATUS,
 											bool 	error_not_connected = false);

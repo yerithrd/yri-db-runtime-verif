@@ -1,5 +1,5 @@
 #!/bin/bash
-# @author: PROF. DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+# @author: Pr. Prof. Dr. Xavier Noundou
 
 USAGE="Usage: $(basename $0) <-d USER_POROJECT_DIR>"
 

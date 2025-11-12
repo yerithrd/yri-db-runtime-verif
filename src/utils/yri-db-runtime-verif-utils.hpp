@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-utils.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _SRC_YRI_DB_RUNTIME_VERIF_UTILS_HPP_
@@ -182,6 +182,10 @@ public:
                                                                const QStringList 	&program_executable_args);
 
 
+    static void ACTION__SET__TEXT__AND__Tooltip_Text(QAction &an_action,
+                                                     QString  text);
+
+
     static bool GZIP_YERITH_FILE(const QString &program_working_directory_full_path,
                                  const QString &file_full_path);
 
@@ -292,6 +296,10 @@ public:
     }
 
 
+    static void writeStringToQFilewithUTF8Encoding_IO(QFile    &a_content_output_file,
+                                                      QString   a_file_content_string,
+                                                      bool      TRUNCATER_FILE_BEFORE_WRITE = false);
+
 
     static bool start_db_transaction();
 
@@ -380,6 +388,28 @@ public:
 
 
 
+    static const QString Console_RAW___LOG___Header_FIRST_print_pdf_file;
+
+    static const QString Console_RAW___LOG___Header_Second__print_pdf_file;
+
+    static const QString Console_RAW___LOG___Footer_print_pdf_file;
+
+
+
+    static const QString Sql__EVENT___LOG___Header_FIRST_print_pdf_file;
+
+    static const QString Sql__EVENT___LOG___Header_Second__print_pdf_file;
+
+    static const QString Sql__EVENT___LOG___Footer_print_pdf_file;
+
+
+
+    static QString EN_template_CONSOLE_RAW_LOG_TEX_document;
+
+    static const QString FILE_YRI_DB_RUNTIME_VERIF_console_raw_log_PDF_TEMPLATE_EN;
+
+
+
     static QString EN_template_EVENT_LOG_TEX_document;
 
     static const QString FILE_YRI_DB_RUNTIME_VERIF_EVENT_LOG_PDF_TEMPLATE_EN;
@@ -436,6 +466,8 @@ private:
 
 #define QDEBUG_STRINGS_OUTPUT_2_N(X, Y) YRI_DB_RUNTIME_VERIF_Utils::qDebugStrings(X, QString::number(Y))
 
+#define QDEBUG_STRING_OUTPUT_2_BOOL(X, Y) YRI_DB_RUNTIME_VERIF_Utils::qDebugStrings(X, BOOL_TO_STRING(Y))
+
 #define QDEBUG_STRINGS_OUTPUT_2(X, Y) YRI_DB_RUNTIME_VERIF_Utils::qDebugStrings(X, Y)
 
 #define QDEBUG_STRINGS_OUTPUT_QSTRINGLIST(X, Y) YRI_DB_RUNTIME_VERIF_Utils::qDebugStrings(X, Y)
@@ -490,6 +522,8 @@ private:
 #define DATE_TO_STRING(D) D.toString(YRI_DB_RUNTIME_VERIF_Utils::DATE_FORMAT)
 
 #define GET_DATE_FROM_STRING(D) QDate::fromString(D, YRI_DB_RUNTIME_VERIF_Utils::DATE_FORMAT)
+
+#define SET_AN_ACTION_TEXT_AND_Tooltip_Text(X, Y) YRI_DB_RUNTIME_VERIF_Utils::ACTION__SET__TEXT__AND__Tooltip_Text(X, Y)
 
 #define TIME_TO_STRING(D) D.toString(YRI_DB_RUNTIME_VERIF_Utils::TIME_FORMAT)
 

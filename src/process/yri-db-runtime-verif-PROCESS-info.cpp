@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-PROCESS-info.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-PROCESS-info.hpp"
@@ -28,7 +28,7 @@ bool YRIDBRUNTIMEVERIF_ProcessInfo::CHECK_WHETHER_DAEMON_PROCESS_IS_RUNNING(QStr
 	if (logger)
 	{
 		logger->log
-		("yerith-erp-3-0 | YRIDBRUNTIMEVERIF_ProcessInfo::CHECK_WHETHER_DAEMON_PROCESS_IS_RUNNING");
+		("yerith-erp-9-0 | YRIDBRUNTIMEVERIF_ProcessInfo::CHECK_WHETHER_DAEMON_PROCESS_IS_RUNNING");
 	}
 
 	QStringList progArguments;

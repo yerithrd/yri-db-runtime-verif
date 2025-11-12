@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-database-table-column.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-database-table-column.hpp"

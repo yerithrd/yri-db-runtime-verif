@@ -1,5 +1,5 @@
 #!/bin/bash
-# @AUTHOR: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+# @AUTHOR: Pr. Prof. Dr. Xavier Noundou
 # @EMAIL: YERITH.xavier@gmail.com
 
 
@@ -13,8 +13,8 @@ MYFILE=YRI_DB_RUNTIME_VERIF_HEADERS_FOR_yerith_erp.TXT
 
 echo "processing files within '${MYFILE}'"
 
-echo "cp yri.db-runtime.verif.xml ${HOME}/yerith-erp-3-0/src/dbus"
-cp yri.db-runtime.verif.xml ${HOME}/yerith-erp-3-0/src/dbus 
+echo "cp yri.db-runtime.verif.xml ${HOME}/yerith-erp-9-0/src/dbus"
+cp yri.db-runtime.verif.xml ${HOME}/yerith-erp-9-0/src/dbus 
 
 n=1
 while read LINE; do

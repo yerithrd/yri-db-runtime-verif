@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-CONFIG.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-CONFIG.hpp"
@@ -14,12 +14,21 @@
 //#######################################################################
 
 
+#include "src/utils/yri-db-runtime-verif-logger.hpp"
+
 #include "src/utils/yri-db-runtime-verif-database.hpp"
 
 #include "src/utils/yri-db-runtime-verif-utils.hpp"
 
 
 #include <QtCore/QDebug>
+
+
+
+QVector<YRI_DB_RUNTIME_VERIF_Monitor *> YRI_DB_RUNTIME_VERIF_Config::user_defined_Runtime_Monitors;
+
+
+QDBusConnection YRI_DB_RUNTIME_VERIF_Config::qdbus_Application_Wide_connection("");
 
 
 
@@ -39,12 +48,22 @@ QString YRI_DB_RUNTIME_VERIF_Config::_db_connection_options("");
 QString YRI_DB_RUNTIME_VERIF_Config::temporaryFilesDir("/tmp");
 
 
+QString YRI_DB_RUNTIME_VERIF_Config::pathToLOGGING_EVENT_FILE("/tmp/LOG_FILE_yri-db-runtime-verif.log");
+
+
 QString YRI_DB_RUNTIME_VERIF_Config::pathToLatexSystemRootFolder("/usr/bin");
 
 
 const QString YRI_DB_RUNTIME_VERIF_Config::__pathToPdfReader("/usr/bin/evince");
 
 QString YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader("/usr/bin/evince");
+
+
+
+QString YRI_DB_RUNTIME_VERIF_Config::YERITH_ERP_9_0_yri_db_runtime_verif_HOME_FOLDER("");
+
+QString YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_DAEMON_ID("yri-db-runtime-verif");
+
 
 
 QString YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_CONFIGURATION_FILE_SEPARATION_OPERATOR("=");
@@ -61,6 +80,14 @@ QString YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER("/tmp");
 
 YRIDBRUNTIMEVERIF_Windows *YRI_DB_RUNTIME_VERIF_Config::ALL_WINDOWS(0);
 
+
+
+void YRI_DB_RUNTIME_VERIF_Config::SET_ALL_WINDOWS_instance(YRIDBRUNTIMEVERIF_Windows *WINDOWS)
+{
+    YRI_DB_RUNTIME_VERIF_Logger::SET_ALL_WINDOWS_instance(WINDOWS);
+
+    ALL_WINDOWS = WINDOWS;
+}
 
 
 void YRI_DB_RUNTIME_VERIF_Config::init_YRI_DB_RUNTIME_VERIF_Config(QString initCfg)
@@ -114,11 +141,19 @@ void YRI_DB_RUNTIME_VERIF_Config::init_YRI_DB_RUNTIME_VERIF_Config(QString initC
             YRI_DB_RUNTIME_VERIF_Config::_db_connection_options = list.at(1).trimmed();
             //qDebug() << "++ db_connection_options = " << db_connection_options << "\n";
         }
+        else if ("parameter_DBUS_service_name_ID" == list.at(0))
+        {
+            YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name = list.at(1).trimmed();
+
+//            QDEBUG_STRINGS_OUTPUT_2("parameter_DBUS_service_name_ID",
+//                                     YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name);
+        }
         else if ("parameter_full_path_pdf_reader" == list.at(0))
         {
             YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader = list.at(1).trimmed();
-            //qDebug() << "++ parameter_full_path_pdf_reader = "
-            //         <<  YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader << "\n";
+
+//            QDEBUG_STRINGS_OUTPUT_2("parameter_full_path_pdf_reader",
+//                                     YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader);
         }
     }
     while (!line.isNull());
@@ -139,8 +174,14 @@ void YRI_DB_RUNTIME_VERIF_Config::save_YRI_DB_RUNTIME_VERIF_Config()
 
     QTextStream textStream(&file);
 
+
+    textStream << QString("parameter_DBUS_service_name_ID=%1\n")
+                    .arg(YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name);
+
+
     textStream << QString("parameter_full_path_pdf_reader=%1\n")
                     .arg(YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader);
+
 
     file.close();
 }

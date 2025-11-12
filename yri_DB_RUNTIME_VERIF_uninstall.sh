@@ -1,5 +1,5 @@
 #!/bin/sh
-# @author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU, YERITH R&D
+# @author: Pr. Prof. Dr. Xavier Noundou, YERITH R&D
 
 # SHOWS THIS Makefile FILE COMMAND STRING IN THE
 # CONSOLE AS THEY ARE EXECUTED.

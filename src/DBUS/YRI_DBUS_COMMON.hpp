@@ -2,7 +2,7 @@
  * YRI_DBUS_COMMON.hpp
  *
  *
- *      Author: Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU, PhD (ABD)
+ *      Author: Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 

@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-CONFIG.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_CONFIG_HPP_
@@ -17,6 +17,8 @@
 
 
 
+class YRI_DB_RUNTIME_VERIF_Monitor;
+
 class YRIDBRUNTIMEVERIF_Windows;
 
 class YRI_DB_RUNTIME_VERIF_Database;
@@ -27,16 +29,21 @@ class YRI_DB_RUNTIME_VERIF_Config
 
 public:
 
-    inline static void SET_ALL_WINDOWS_instance(YRIDBRUNTIMEVERIF_Windows *WINDOWS)
+    void SET_ALL_WINDOWS_instance(YRIDBRUNTIMEVERIF_Windows *WINDOWS);
+
+
+    static inline QString GET_YRI_DB_RUNTIME_VERIF_EXECUTABLE_FULL_PATH()
     {
-    	ALL_WINDOWS = WINDOWS;
+        return QString("%1/bin/%2").
+               arg(YRI_DB_RUNTIME_VERIF_Config::YERITH_ERP_9_0_yri_db_runtime_verif_HOME_FOLDER,
+                   YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_DAEMON_ID);
     }
 
-    inline static YRIDBRUNTIMEVERIF_Windows *GET_ALL_WINDOWS_instance()
+
+    static inline YRIDBRUNTIMEVERIF_Windows *GET_ALL_WINDOWS_instance()
     {
     	return ALL_WINDOWS;
     }
-
 
 
     inline static QString pathToPs2Pdf()
@@ -65,6 +72,11 @@ public:
     }
 
 
+    static QVector<YRI_DB_RUNTIME_VERIF_Monitor *> user_defined_Runtime_Monitors;
+
+
+    static QDBusConnection qdbus_Application_Wide_connection;
+
 
     static void init_YRI_DB_RUNTIME_VERIF_Config(QString initCfg);
 
@@ -88,12 +100,20 @@ public:
     static QString temporaryFilesDir;
 
 
+    static QString pathToLOGGING_EVENT_FILE;
+
+
     static QString pathToLatexSystemRootFolder;
 
 
     static const QString __pathToPdfReader;
 
     static QString pathToPdfReader;
+
+
+    static QString YERITH_ERP_9_0_yri_db_runtime_verif_HOME_FOLDER;
+
+    static QString YRI_DB_RUNTIME_VERIF_SYSTEM_DAEMON_ID;
 
 
     static QString YRI_DB_RUNTIME_VERIF_CONFIGURATION_FILE_SEPARATION_OPERATOR;

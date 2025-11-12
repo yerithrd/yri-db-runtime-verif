@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-logging-table-widget.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_LOGGING_TABLE_WIDGET_HPP_
@@ -39,6 +39,7 @@ public:
 
 	virtual void resize_columns_AND_rows_to_contents();
 
+
 	int ADD_ITEM_3(QString Source_file__line_number);
 
     int ADD_ITEM_2(QString SQL_QUERY_STRING,
@@ -47,6 +48,10 @@ public:
 	int ADD_ITEM_2(QString Source_file__line_number);
 
 	int ADD_ITEM_1(QString Precondition__Or__POST_CONDITION);
+
+
+    int ADD_ITEM_Console_Raw_LOGGING(QString TIMESTAMP,
+                                     QString STRING_FOR_console_raw);
 
 	int ADD_ITEM(QString TIMESTAMPtem,
 				 QString SIGNALItem,
@@ -83,7 +88,7 @@ public slots:
 
     virtual inline uint FILTER_ITEM(const QString &SIGNALItem_TEXT)
     {
-        FILTER_ITEM(SIGNALItem_TEXT, false);
+        return FILTER_ITEM(SIGNALItem_TEXT, false);
     }
 
 signals:
@@ -104,12 +109,26 @@ public:
 	static const unsigned int changed_or_MODIFIED_database_QTY_COLUMN;
 
 
+	static const unsigned int qDebug_Console_Raw_Column;
+
 private:
 
 	static const uint MAX_TABLE_WIDGET_ROW_COUNT;
 
 
 	bool    _IS_CURRENTLY_FILTERED;
+
+
+
+	/*
+	 * Console Logging Raw Tab elements (Tab number 3).
+	 */
+	int _curRow__Tab__Console_Logging_Raw;
+
+	QTableWidgetItem *_qDebugConsoleRawItem;
+
+    YRIDBRUNTIMEVERIF_QMap _CONSOLE_RAW_mapListIdxToElement_db_ID;
+
 
 
     int _curRow;
@@ -119,7 +138,8 @@ private:
     YRIDBRUNTIMEVERIF_QMap _mapListIdxToElement_db_ID;
 
 
-	QTableWidgetItem *_TIMESTAMPtem;
+
+	QTableWidgetItem *_TIMESTAMP_Item;
 
 	QTableWidgetItem *_SIGNALItem;
 

@@ -1,9 +1,9 @@
 Package: yri-db-runtime-verif 
 Architecture: all
-Maintainer: PROF. DR.-ING. DIPL.-INF. NOUMBISSI NOUNDOU XAVIER
+Maintainer: Pr. Prof. Dr. Xavier Noundou
 Priority: optional
-Version: 3.0
-Description: Yeroth-erp-3.0 is the best ERP software-system in the universe!
+Version: 9.0
+Description: Yerith-erp-9.0 is the best ERP software-system in the universe!
  yri-db-runtime-verif constitutes its RUNTIME VERIFICATION SYSTEM !
 Section: Utility
 Pre-Depends: xvfb, libqt5sql5-mysql, libqt5sql5, default-mysql-client-core, texlive-luatex, texlive, texlive-base, texlive-extra-utils, texlive-font-utils, texlive-fonts-extra, texlive-fonts-recommended, texlive-latex-base, texlive-latex-extra, texlive-latex-recommended, texlive-science

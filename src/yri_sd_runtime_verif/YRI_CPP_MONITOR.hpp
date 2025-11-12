@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: D.ENG. PR. PROF. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_MONITOR_HPP_
@@ -63,6 +63,13 @@ public:
                                           QString RUNTIME_MONITOR_NAME = YRI_CPP_UTILS::EMPTY_STRING);
 
     virtual ~YRI_CPP_MONITOR();
+
+
+    virtual inline YRI_CPP_MONITOR_ERP_database *Get___yri_SET_ALGEBRA_inclusion_DATABASE_to_query_for_STATUS()
+    {
+        return _yri_SET_ALGEBRA_inclusion_DATABASE_to_query_for_STATUS;
+    }
+
 
     void set_yri_root_edge(YRI_CPP_MONITOR_EDGE *ROOT_EDGE);
 
@@ -138,6 +145,11 @@ public:
     bool CHECK_PRE_CONDITION_IN(QMap<QString, QString> &SET_in_PRE_STATEPROPERTYKEY_TO_VALUE_map);
 
     bool CHECK_post_condition_notIN(QMap<QString, QString> &SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE_map);
+
+    bool CHECK_post_condition_NOP()
+    {
+        return true;
+    }
 
     bool CHECK_post_condition_IN(QMap<QString, QString> &SET_IN_POST_STATEPROPERTYKEY_TO_VALUE_map);
 

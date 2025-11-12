@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-software-text-configuration.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YERITH_ERP_3_0_SOFTWARE_TEXT_CONFIGURATION_HPP_

@@ -1,9 +1,13 @@
 #!/bin/bash
 #email: YERITH.xavier@gmail.com
-#author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU (YERITH R&D)!
+#author: Pr. Prof. Dr. Xavier Noundou (YERITH R&D)!
 
 
 rm -f yri-db-runtime-verif.deb
+
+
+cp YRI-DB-RUNTIME-VERIF-GUI-ELEMENTS-SETUP/40yri-db-runtime-verif_xsessionrc \
+	yri-db-runtime-verif/etc/X11/Xsession.d
 
 
 cp YRI-DB-RUNTIME-VERIF-GUI-ELEMENTS-SETUP/yri-db-runtime-verif.desktop \

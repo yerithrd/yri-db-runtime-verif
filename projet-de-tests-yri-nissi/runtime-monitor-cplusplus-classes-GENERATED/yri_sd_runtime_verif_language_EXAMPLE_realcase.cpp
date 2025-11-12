@@ -33,22 +33,29 @@ void yri_sd_runtime_verif_language_EXAMPLE_realcase::YRI_CALL_BACK_final_state(Y
 
 
 yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EXAMPLE_realcase()
-    :YRI_DB_RUNTIME_VERIF_Monitor()
+    :YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING()
 {
+    ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
+
     set_RUNTIME_MONITOR_NAME("yri_sd_runtime_verif_language_EXAMPLE_realcase");
 
 
-    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("d", "e");
+    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("A", "E");
     a_last_edge_1->get_SOURCE_STATE()->set_START_STATE(*this, true);
     a_last_edge_1->get_TARGET_STATE()->set_ERROR_STATE(true);
     a_last_edge_1->get_SOURCE_STATE()->set_PRE_CONDITION_notIN("YRI_ASSET", "departements_produits.nom_departement_produit");
     a_last_edge_1->get_TARGET_STATE()->set_POST_CONDITION_IN("YRI_ASSET", "stocks.nom_departement_produit");
 
+    a_last_edge_1->get_TARGET_STATE()->Set_SQL_RECOVERY_QUERY_STRING("insert into departements_produits (id, nom_departement_produit) values ((SELECT id FROM departements_produits ORDER BY id DESC LIMIT 0, 1), 'YRI_ASSET');");
+
+    set_Recovery_action(a_last_edge_1->get_SOURCE_STATE(),
+                        a_last_edge_1->get_TARGET_STATE());
+
 
     YRI_CPP_notinset_inset_TRACE_expression *a_last_edge_1_GUARDED_CONDITION
         = new YRI_CPP_notinset_inset_TRACE_expression(true,
                 "'DELETE.departements_produits.YRI_ASSET'",
-                "d");
+                "A");
 
     a_last_edge_1->set_GUARDED_CONDITION(a_last_edge_1_GUARDED_CONDITION);
 
@@ -62,22 +69,29 @@ yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EX
 
 
 yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EXAMPLE_realcase(YRI_DB_RUNTIME_VERIF_Logger *logger)
-    :YRI_DB_RUNTIME_VERIF_Monitor(logger)
+    :YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING(logger)
 {
+    ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
+
     set_RUNTIME_MONITOR_NAME("yri_sd_runtime_verif_language_EXAMPLE_realcase");
 
 
-    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("d", "e");
+    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("A", "E");
     a_last_edge_1->get_SOURCE_STATE()->set_START_STATE(*this, true);
     a_last_edge_1->get_TARGET_STATE()->set_ERROR_STATE(true);
     a_last_edge_1->get_SOURCE_STATE()->set_PRE_CONDITION_notIN("YRI_ASSET", "departements_produits.nom_departement_produit");
     a_last_edge_1->get_TARGET_STATE()->set_POST_CONDITION_IN("YRI_ASSET", "stocks.nom_departement_produit");
 
+    a_last_edge_1->get_TARGET_STATE()->Set_SQL_RECOVERY_QUERY_STRING("insert into departements_produits (id, nom_departement_produit) values ((SELECT id FROM departements_produits ORDER BY id DESC LIMIT 0, 1), 'YRI_ASSET');");
+
+    set_Recovery_action(a_last_edge_1->get_SOURCE_STATE(),
+                        a_last_edge_1->get_TARGET_STATE());
+
 
     YRI_CPP_notinset_inset_TRACE_expression *a_last_edge_1_GUARDED_CONDITION
         = new YRI_CPP_notinset_inset_TRACE_expression(true,
                 "'DELETE.departements_produits.YRI_ASSET'",
-                "d");
+                "A");
 
     a_last_edge_1->set_GUARDED_CONDITION(a_last_edge_1_GUARDED_CONDITION);
 
@@ -129,12 +143,6 @@ bool yri_sd_runtime_verif_language_EXAMPLE_realcase::DO_VERIFY_AND_or_CHECK_ltl_
         break;
 
     case YRI_CPP_UTILS::SELECT:
-
-        if (YRI_DB_RUNTIME_VERIF_Utils::isEqualsCaseInsensitive(sql_table_name, "departements_produits"))
-        {
-            return YRI_SQL_SELECT_departements_produits();
-        }
-
         break;
 
     case YRI_CPP_UTILS::UPDATE:
@@ -152,7 +160,7 @@ bool yri_sd_runtime_verif_language_EXAMPLE_realcase::DO_VERIFY_AND_or_CHECK_ltl_
 }
 
 
-bool yri_sd_runtime_verif_language_EXAMPLE_realcase::YRI_SQL_SELECT_departements_produits()
+bool yri_sd_runtime_verif_language_EXAMPLE_realcase::YRI_SQL_SELECT_departements_produits___Event()
 {
     return YRI_trigger_an_edge_event("'SELECT.departements_produits'");
 }

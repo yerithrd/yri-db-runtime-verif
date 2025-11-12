@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-LOGGING-INFO.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 
@@ -81,5 +81,11 @@ QString YRIDBRUNTIMEVERIF_Logging_Info::toString()
 }
 
 
+void YRIDBRUNTIMEVERIF_Logging_Info::WRITE_TO_FILE_IO(QString a_file_output_name)
+{
+    QFile an_output_file(a_file_output_name);
+
+    WRITE_TO_FILE_IO(an_output_file);
+}
 
 

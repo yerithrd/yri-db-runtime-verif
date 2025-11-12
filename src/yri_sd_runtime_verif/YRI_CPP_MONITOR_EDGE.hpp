@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_EDGE.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: D.ENG. PR. PROF. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_MONITOR_EDGE_HPP_
@@ -63,7 +63,7 @@ protected:
 
 public:
 
-    virtual ~ YRI_CPP_MONITOR_EDGE();
+    virtual ~YRI_CPP_MONITOR_EDGE();
 
     QString YRI_EXPORT_edge_CLASS_INSTANCE();
 

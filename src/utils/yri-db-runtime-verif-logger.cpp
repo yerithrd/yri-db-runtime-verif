@@ -1,10 +1,11 @@
 /*
  * yri-db-runtime-verif-logger.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-logger.hpp"
+
 
 #include "src/utils/yri-db-runtime-verif-utils.hpp"
 
@@ -13,12 +14,27 @@
 
 //#define YERITH_DEBUG_LOG
 
-YRI_DB_RUNTIME_VERIF_Logger::YRI_DB_RUNTIME_VERIF_Logger(QString cppClassName, YERITH_LOG_LEVEL logLevel):_logLevel(logLevel),
-    _cppClassName(cppClassName),
-    _qDebug(0), _logFile(0)
+
+
+QStringList YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List;
+
+
+YRIDBRUNTIMEVERIF_Windows *YRI_DB_RUNTIME_VERIF_Logger::_ALL_WINDOWS = 0;
+
+
+
+
+YRI_DB_RUNTIME_VERIF_Logger::YRI_DB_RUNTIME_VERIF_Logger(QString            cppClassName,
+                                                         YERITH_LOG_LEVEL   logLevel)
+:_logLevel(logLevel),
+ _cppClassName(cppClassName),
+ _qDebug(0),
+ _logFile(0)
 {
     _logFile = new QFile(YRI_DB_RUNTIME_VERIF_Utils::getLogFileName());
+
     _qDebug = new QDebug(_logFile);
+
     if (!_logFile->open(QIODevice::WriteOnly | QIODevice::Append))
     {
         qDebug() << "[YerenLogger][YerenLogger] "

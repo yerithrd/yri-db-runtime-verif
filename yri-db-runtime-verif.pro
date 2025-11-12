@@ -12,7 +12,7 @@ QT += sql
 QT += dbus
 QT += network
 
-VERSION = 3.0
+VERSION = 9.0
 
 QMAKE_CXXFLAGS_RELEASE -= -O2
 #QMAKE_CXXFLAGS_RELEASE += --coverage
@@ -37,6 +37,7 @@ FORMS = ui/yri-db-runtime-verif-setup-window.ui \
 
 HEADERS = src/windows/yri-db-runtime-verif-COMMONS-window.hpp \
 			src/windows/yri-db-runtime-verif-setup-window.hpp \
+			src/client_analysis/YERITH_QVGE_sample___CLIENT___TaintAnalysis.hpp \
 			src/utils/yri-db-runtime-verif-LOGGING-INFO.hpp \
 			src/widgets/yri-db-runtime-verif-combo-box.hpp \
 			src/utils/yri-db-runtime-verif-qmap.hpp \
@@ -45,6 +46,7 @@ HEADERS = src/windows/yri-db-runtime-verif-COMMONS-window.hpp \
 			src/widgets/yri-db-runtime-verif-logging-table-widget.hpp \
 			src/windows/yri-db-runtime-verif-windows.hpp \
 			src/windows/yri-db-runtime-verif-main-window.hpp \
+			src/include/yri-db-runtime-verif-MONITOR__Analysis_CHECKING_Testing.hpp \
 			src/include/yri-db-runtime-verif-MONITOR.hpp \
 			src/include/yri-db-runtime-verif-definition-oo-class-operators.hpp \
 			src/include/yri-db-runtime-verif-definition-format-date-time.hpp \
@@ -61,6 +63,7 @@ HEADERS = src/windows/yri-db-runtime-verif-COMMONS-window.hpp \
 
 SOURCES = src/windows/yri-db-runtime-verif-COMMONS-window.cpp \
 			src/windows/yri-db-runtime-verif-setup-window.cpp \
+			src/client_analysis/YERITH_QVGE_sample___CLIENT___TaintAnalysis.cpp \
 			src/utils/yri-db-runtime-verif-LOGGING-INFO.cpp \
 			src/widgets/yri-db-runtime-verif-combo-box.cpp \
 			src/utils/yri-db-runtime-verif-qmap.cpp \
@@ -69,6 +72,7 @@ SOURCES = src/windows/yri-db-runtime-verif-COMMONS-window.cpp \
 			src/widgets/yri-db-runtime-verif-logging-table-widget.cpp \
 			src/windows/yri-db-runtime-verif-windows.cpp \
 			src/windows/yri-db-runtime-verif-main-window.cpp \
+			src/include/yri-db-runtime-verif-MONITOR__Analysis_CHECKING_Testing.cpp \
 			src/include/yri-db-runtime-verif-MONITOR.cpp \
 			src/yri-db-runtime-verif.cpp \
 			src/process/yri-db-runtime-verif-PROCESS.cpp \

@@ -2,7 +2,7 @@
  * YRI_DBUS_COMMON.cpp
  *
  *
- *      Author: Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU, PhD (ABD)
+ *      Author: Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 
@@ -120,14 +120,12 @@ void YRI_DBUS_COMMON::TRACE_SUT_LOG_EVENT(YRI_DB_RUNTIME_VERIF_Monitor &a_runtim
 
     if (0 != ALL_WINDOWS_INSTANCE)
     {
-        if (0 != ALL_WINDOWS_INSTANCE->_yrdbruntimeverif_setup_Window)
-        {
-            ALL_WINDOWS_INSTANCE->_yrdbruntimeverif_setup_Window
-                ->Set_A_SUT_comboBox_SUT_identification(SUT_string_unique_ID);
-        }
-
         if (0 != ALL_WINDOWS_INSTANCE->_yrdbruntimeverif_main_Window)
         {
+            ALL_WINDOWS_INSTANCE->_yrdbruntimeverif_main_Window
+                ->Set_A_SUT_comboBox_SUT_identification(SUT_string_unique_ID);
+
+
             YRIDBRUNTIMEVERIF_Logging_Info a_logging_info;
 
             a_logging_info.A_RUNTIME_MONITOR_QSTRING_ID = a_runtime_monitor.GET_QSTRING_ID();
@@ -153,6 +151,14 @@ void YRI_DBUS_COMMON::TRACE_SUT_LOG_EVENT(YRI_DB_RUNTIME_VERIF_Monitor &a_runtim
                                "YRI-DB-RUNTIME-VERIF",
                                a_logging_info.changed_record_db_quantity,
                                a_logging_info);
+
+
+            if (ALL_WINDOWS_INSTANCE
+                    ->_yrdbruntimeverif_main_Window
+                        ->Is_SUT__to__LOG(SUT_string_unique_ID))
+            {
+                a_logging_info.WRITE_TO_FILE_IO(YRI_DB_RUNTIME_VERIF_Config::pathToLOGGING_EVENT_FILE);
+            }
         }
     }
 

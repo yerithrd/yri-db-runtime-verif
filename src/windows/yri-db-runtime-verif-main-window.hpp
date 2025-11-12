@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-main-window.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_MAIN_WINDOW_HPP_
@@ -9,6 +9,8 @@
 
 #include "../../ui_yri-db-runtime-verif-main-window.h"
 
+
+#include "src/process/yri-db-runtime-verif-PROCESS.hpp"
 
 #include "src/widgets/yri-db-runtime-verif-progress-bar.hpp"
 
@@ -38,12 +40,12 @@ public:
 	YRIDBRUNTIMEVERIF_MainWindow();
 
 
-    inline virtual ~YRIDBRUNTIMEVERIF_MainWindow()
+    virtual inline ~YRIDBRUNTIMEVERIF_MainWindow()
     {
     }
 
 
-    inline virtual QToolBar &get_tool_bar()
+    virtual inline QToolBar &get_tool_bar()
     {
     	return *toolBar_mainWindow_YRI_DB_RUNTIME_VERIF;
     }
@@ -53,6 +55,9 @@ public:
 
 
     virtual void SELECT_ERROR_LOGGING_row(uint a_row_selected);
+
+
+    virtual void Update_RUNTIME_MONITOR_names();
 
 
     virtual void SET_CURRENT_RUNTIME_MONITOR_name_Logging(QString A_RUNTIME_MONITOR_name);
@@ -65,6 +70,15 @@ public:
     {
         return comboBox_RUNTIME_MONITOR_NAME_Error_LOGGING->currentText();
     }
+
+
+    virtual inline int ADD_ITEM_Console_Raw(QStringList &Console_Raw_STR_MSG_List)
+    {
+       return ADD_ITEM_Console_Raw(Console_Raw_STR_MSG_List.join(YRI_DB_RUNTIME_VERIF_Utils::EMPTY_STRING).trimmed());
+    }
+
+
+    virtual int ADD_ITEM_Console_Raw(QString STRING_FOR_console_raw);
 
 
 	virtual int ADD_ERROR_ITEM(QString                        TIMESTAMPtem,
@@ -87,13 +101,22 @@ public:
 		(YRI_DB_RUNTIME_VERIF_Monitor *a_current_runtime_monitor_INSTANCE);
 
 
-	inline virtual YRI_DB_RUNTIME_VERIF_Monitor *GET__CURRENT__RUNTIME__MONITOR()
+	virtual inline YRI_DB_RUNTIME_VERIF_Monitor *GET__CURRENT__RUNTIME__MONITOR()
 	{
 		return _current_runtime_monitor_INSTANCE;
 	}
 
 
 public slots:
+
+    virtual void ON_STOP__logging__SUT_ACTIONS();
+
+
+    virtual void ON_START__logging__SUT_ACTIONS();
+
+
+    virtual void Set_A_SUT_comboBox_SUT_identification(QString &a_sut_identification);
+
 
     virtual inline void Set___SUT__Logging(QString A_SUT_ID,
                                            bool a_boolean_value)
@@ -144,11 +167,46 @@ public slots:
 
 protected slots:
 
+
+    virtual void Disable_comboBox_RUNTIME_MONITOR_NAME_Logging();
+
+
+    virtual inline void STOP_YRI_DB_RUNTIME_VERIF_DAEMON_PROCESS()
+    {
+        YRIDBRUNTIMEVERIF_Process::STOP__Restart__GTK_gui_yri_db_runtime_verif();
+    }
+
+
+    virtual inline bool export_Console_DEBUGGING_csv_file()
+    {
+        return
+            YRI_DB_RUNTIME_VERIF_Utils::
+                SAVE_AS_csv_file(*this,
+                                 *tableWidget_Console_logging_Raw,
+                                 "console-debugging-log-listing-csv-format",
+                                 "CONSOLE DEBUGGING log csv export");
+    }
+
+
     bool export_csv_file();
 
 
     virtual bool set_SQL_current_recovered_query_string(QString SQL_QUERY_STRING,
                                                         QString TIMESTAMP = "");
+
+
+    virtual inline void set_A_Runtime_Monitor_Name_FOR_VIEWING_As_Dot_Graph()
+    {
+        set_A_Runtime_Monitor_Name_FOR_VIEWING_As_Dot_Graph(YRI_DB_RUNTIME_VERIF_Utils::EMPTY_STRING,
+                                                            true);
+    }
+
+
+    virtual void set_A_Runtime_Monitor_Name_FOR_VIEWING_As_Dot_Graph(QString    RUNTIME_MONITOR_name_TO_PRINT_DOT,
+                                                                     bool       Clear__ON__Empty_NAME = false);
+
+
+    void set_UPPER_widgets_elements_visibility();
 
 
     void set_CURRENT_TABWIDGET_ACTION_visible(bool a_value);
@@ -164,6 +222,12 @@ protected slots:
 
 
     int GET_QTABLEWIDGET_CURRENT_ROW_TO_Select(int current_index);
+
+
+    virtual inline void handle_combobox_CHANGE_RUNTIME_MONITOR_NAME(const QString &)
+    {
+        set_CURRENT_TABWIDGET_ACTION_visible(false);
+    }
 
 
     void handle_current_tab_changed(int current_index);
@@ -187,25 +251,49 @@ protected slots:
     virtual void setLast_SelectedRow_Row_ID(const QModelIndex &a_model_CELL_index);
 
 
+	virtual void get_console_Debugging_LOG_Raw_PRINT_OUT_TexTableString(QTableWidget  &current_QTable_Widget_Item,
+                                                                        QString       &texTable_IN_OUT,
+                                                                        int           row_MAX_TO_GO_export = -1);
+
+
 	virtual void get_PRINT_OUT_TexTableString(QTableWidget  &current_QTable_Widget_Item,
                                               QString       &texTable_IN_OUT,
                                               int           row_MAX_TO_GO_export = -1);
 
 
-    inline virtual void yri_PRINT_with_PROGRESS_BAR_ON__event_log_excerpt_till_selected_SQL_event()
+
+    virtual inline void yri_PRINT_console_debugging_Log_excerpt_till_selected_LOGGING_string_ID()
+    {
+        YRI_DB_RUNTIME_VERIF_ProgressBar(this)(this,
+                                              &YRIDBRUNTIMEVERIF_MainWindow::PRINT_console_debugging_Log_excerpt_till_selected_LOGGING_string_ID);
+    }
+
+
+    virtual inline void yri_PRINT_with_PROGRESS_BAR_ON__event_log_excerpt_till_selected_SQL_event()
     {
         YRI_DB_RUNTIME_VERIF_ProgressBar(this)(this,
                                               &YRIDBRUNTIMEVERIF_MainWindow::PRINT_event_log_excerpt_till_selected_SQL_event);
     }
 
 
+    virtual bool PRINT_console_debugging_Log_excerpt_till_selected_LOGGING_string_ID();
+
     virtual bool PRINT_event_log_excerpt_till_selected_SQL_event();
 
+
+    virtual void yri_PRINT_with_PROGRESS_BAR_ON__console_debugging_Log_excerpt(int a_row_FOR_pdf_printing_max = -1);
 
     virtual void yri_PRINT_with_PROGRESS_BAR_ON__event_log_excerpt(int a_row_FOR_pdf_printing_max = -1);
 
 
-    inline virtual void *PRINT_event_log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
+    virtual inline void *PRINT_console_debugging_Log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
+    {
+        (0 != a_row_FOR_pdf_printing_max) ?
+                PRINT_console_debugging_Log_excerpt(*a_row_FOR_pdf_printing_max) :
+                PRINT_console_debugging_Log_excerpt();
+    }
+
+    virtual inline void *PRINT_event_log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
     {
         (0 != a_row_FOR_pdf_printing_max) ?
                 PRINT_event_log_excerpt(*a_row_FOR_pdf_printing_max) :
@@ -213,10 +301,16 @@ protected slots:
     }
 
 
+    virtual bool PRINT_console_debugging_Log_excerpt(int a_row_FOR_pdf_printing_max = -1);
+
     virtual bool PRINT_event_log_excerpt(int a_row_FOR_pdf_printing_max = -1);
 
 
+
 	virtual void ON_Configfuration_panel_window_trigerred();
+
+
+	virtual bool ON_action_export_as_CSV_till_selected_console_debugging_LINE();
 
 
     virtual bool ON_action_export_as_CSV_till_selected_SQL_event();
@@ -276,7 +370,7 @@ protected slots:
     {
     	QMessageBox::information(toolBar_mainWindow_YRI_DB_RUNTIME_VERIF,
     							 "ABOUT THIS SOFTWARE (YRI-DB-RUNTIME-VERIF)",
-    							 QObject::tr("DEVELOPED by PROF. DR.-ING. DIPL.-INF. XAVIER NOUNDOU."));
+    							 QObject::tr("DEVELOPED by D.ENG. PR. PROF. Xavier Noundou."));
     }
 
 
@@ -303,7 +397,26 @@ protected:
     }
 
 
+    virtual void SWICTH_EVENT__LOG__to___console__log__EVENT_action(bool console_debugging_log = true);
+
+
     virtual void contextMenuEvent(QContextMenuEvent *event);
+
+
+
+private:
+
+    void Set__TOOLTIP__for__CONDITIONS(YRIDBRUNTIMEVERIF_Logging_Info &a_logging_info);
+
+    /*
+     * Checkbox 'checkBox_ALL_STATE_SAFETY_PROPERTIES_Logging' is visible only
+     * when the observed and manipulated runtimme monitor STATE DIAGRAM MEALY
+     * MACHINE has more than 2 states.
+     *
+     * @return: return set visibility of Checkbox 'checkBox_ALL_STATE_SAFETY_PROPERTIES_Logging'.
+     */
+    bool CHANGE_visibility__Of__checkBox_ALL_STATE_SAFETY_PROPERTIES_Logging();
+
 
 
 public:
@@ -316,17 +429,33 @@ public:
 private:
 
 
+    enum YridbruntimeVerifMainWindowTabPositionsTypes
+    {
+        SQL_ERROR_EVENT_REPORTING_LOGGING = 0,
+        SQL_EVENT_LOGGING = 1,
+        CONSOLE_LOGGING_RAW = 2,
+        RUNTIME_VERIFICATION_MONITORS = 3
+    };
+
+
     bool                        _pushButton_lecteur_de_code_barres_Logging_JUST_CLICKED;
 
     bool                        _pushButton_lecteur_de_code_barres_JUST_CLICKED;
 
     bool                        _CURRENT_runtime_monitor_name_Filtered;
 
+
+    uint                        _visible_Console_RAW_row_counter;
+
     uint                        _visible_ERROR_row_counter;
 
     uint                        _visible_row_counter;
 
+
     QString                     RUNTIME_MONITOR_name_TO_PRINT_DOT;
+
+
+    const QModelIndex           *_Last_SelectedRow_Row_INDEX_Console_debugging;
 
     const QModelIndex           *_Last_SelectedRow_Row_INDEX;
 

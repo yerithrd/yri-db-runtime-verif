@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-sqltable-model.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_SQLTABLE_MODEL_HPP_

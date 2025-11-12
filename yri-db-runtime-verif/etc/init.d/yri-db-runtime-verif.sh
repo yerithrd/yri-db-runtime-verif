@@ -8,7 +8,7 @@
 # Required-Stop:     $local_fs $syslog $remote_fs
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Enable RUNTIME VERIFICATION system of ''Yeroth-erp-3.0''
+# Short-Description: Enable RUNTIME VERIFICATION system of ''Yerith-erp-9.0''
 ### END INIT INFO
 
 export DISPLAY=:0.0
@@ -38,10 +38,11 @@ case "$1" in
     xvfb-run --auto-servernum "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif > /dev/null 2>&1
     ;;
   force-reload)
-    echo "Force reload script yri-db-runtime-verif.sh"
+    echo "Force reload for YRI-DB-RUNTIME-VERIF"
     kill_yri_db_runtime_verif_daemon
-    xvfb-run --auto-servernum "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif > /dev/null 2>&1
-    ;;
+    echo "Force reload GTK-gui 2."
+    su --preserve-environment -c "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif-BIN.SH
+    ;;  
   status)
     echo "Check status of script yri-db-runtime-verif.sh"
     pgrep -a yri-db-runtime | grep "${YRI_DB_RUNTIME_VERIF_HOME_FOLDER}"/bin/yri-db-runtime-verif 

@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_object.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: D.ENG. PR. PROF. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_MONITOR_OBJECT_HPP_

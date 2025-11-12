@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-LOGGING-INFO.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_LOGGING_INFO_HPP_
@@ -44,7 +44,20 @@ public:
                     ("True", AN_ACCEPTING_STATE_is_error_state_VALUE));
 	}
 
-	virtual QString toString();
+
+    virtual QString toString();
+
+
+    virtual inline void WRITE_TO_FILE_IO(QFile &an_output_file)
+    {
+        YRI_DB_RUNTIME_VERIF_Utils::
+            writeStringToQFilewithUTF8Encoding_IO(an_output_file,
+                                                  toString());
+    }
+
+
+	virtual void WRITE_TO_FILE_IO(QString a_file_output_name);
+
 
 
 	QString A_RUNTIME_MONITOR_name;

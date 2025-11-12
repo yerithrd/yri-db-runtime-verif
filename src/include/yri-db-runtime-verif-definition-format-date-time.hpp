@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-definition-format-date-time.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YERITH_ERP_3_0_DEFINITION_FORMAT_DATE_TIME_HPP_

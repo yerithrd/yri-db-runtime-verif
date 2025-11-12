@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-MONITOR.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 
@@ -237,14 +237,20 @@ bool YRI_DB_RUNTIME_VERIF_Monitor::
     QString cpp_line_number =
                     sql_table_ADDED_with_file_AND_line_number_LIST.at(2);
 
-    qDebug() <<
-             "YRI_DB_RUNTIME_VERIF_Monitor::DO_VERIFY_AND_or_CHECK_ltl_PROPERTY() \n" <<
-             "\t [C++_STMT " << QString("(%1.%2)[%3,%4] at %5:%6]").
-             arg(YRI_CPP_UTILS::_DB_STMT_verification_ToUserViewString.
-                 value(cur_SQL_command), sql_table_name,
-                 QString::number(cur_SQL_command),
-                 QString::number(sql_record_qty_MODIFIED), CPP_FILE_NAME,
-                 cpp_line_number);
+
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+             << "[C++_STMT "
+             << QString("(%1.%2)[%3,%4] at %5:%6]")
+                 .arg(YRI_CPP_UTILS::_DB_STMT_verification_ToUserViewString.value(cur_SQL_command),
+                      sql_table_name,
+                      QString::number(cur_SQL_command),
+                      QString::number(sql_record_qty_MODIFIED), CPP_FILE_NAME,
+                      cpp_line_number);
+
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
+
 
     /*
      * SKELETON THAT COULD BE A starting

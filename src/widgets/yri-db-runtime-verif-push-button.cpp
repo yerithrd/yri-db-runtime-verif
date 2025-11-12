@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-push-button.cpp
  *
- *      Author: PROF. DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-push-button.hpp"

@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_UTILS.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: D.ENG. PR. PROF. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_UTILS_HPP_
@@ -28,6 +28,11 @@ using namespace std;
     inline void operator delete[](void *ptr, size_t){ free(ptr); } \
     inline void operator delete(void *ptr){ free(ptr); } \
     inline void operator delete(void *ptr, size_t){ free(ptr); }
+
+
+
+class QSqlQuery;
+
 
 
 class YRI_CPP_UTILS : public QObject
@@ -63,8 +68,11 @@ public:
                               const QStringList &aStringList);
 
     static void qDebugStrings(const QString &firstString,
-                              const QString &secondString =
-                                              YRI_CPP_UTILS::EMPTY_STRING);
+                              const QString &secondString = YRI_CPP_UTILS::EMPTY_STRING);
+
+
+    static int execQuery(QSqlQuery      &query,
+                         const QString  &strQuery);
 
 
     static bool execQuery(const QString &strQuery,

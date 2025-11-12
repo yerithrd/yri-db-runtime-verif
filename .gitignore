@@ -1,10 +1,10 @@
-yerith-erp-3-0.qrc
+yerith-erp-9-0.qrc
 *.*~
 qrc_*
 .cproject
 .project
 .settings
-.yerith_erp_3_0
+.yerith_erp_9_0
 .qmake.stash
 obj
 *.bak
@@ -25,3 +25,4 @@ ui_*
 *.lof 
 *.out 
 *.toc
+*.xgr

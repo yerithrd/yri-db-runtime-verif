@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-utils.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-utils.hpp"
@@ -100,6 +100,58 @@ const QString YRI_DB_RUNTIME_VERIF_Utils::JH_NISSI_SERVER("com.yerith-erp.server
 
 const QString YRI_DB_RUNTIME_VERIF_Utils::JH_NISSI_SERVER_OBJECT("/");
 
+
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::Console_RAW___LOG___Header_FIRST_print_pdf_file
+    = "\\begin{table*}[!htbp]\n"
+      "\\centering\n"
+      "\\resizebox{\\textwidth}{!}{\n"
+      "\\begin{tabular}"
+      "{|c|c|l|} \\hline";
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::Console_RAW___LOG___Header_Second__print_pdf_file
+    = " & & 		                        \\\\ \n"
+      "\\textbf{ID}	                        & 	 \n"
+      "\\textbf{time stamp}	                & 	 \n"
+      "\\textbf{CONSOLE DEBUGGING LOG RAW}  \\\\ \n"
+      " & &				    \\\\ \\hline \\hline \n";
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::Console_RAW___LOG___Footer_print_pdf_file
+    = "\\hline\n"
+      "\\end{tabular}}\n"
+      "\\end{table*}\n";
+
+
+
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::Sql__EVENT___LOG___Header_FIRST_print_pdf_file
+    = "\\begin{table*}[!htbp]\n"
+      "\\centering\n"
+      "\\resizebox{\\textwidth}{!}{\n"
+      "\\begin{tabular}"
+      "{|l|c|c|c|c|c|c|} \\hline";
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::Sql__EVENT___LOG___Header_Second__print_pdf_file
+    = " & & & & & &		                    \\\\ \n"
+      "\\textbf{ID}	                        & 	 \n"
+      "\\textbf{time stamp}	                & 	 \n"
+      "\\textbf{sql event log / sql trace}	& 	 \n"
+      "\\textbf{source}	                    & 	 \n"
+      "\\textbf{target} 	                & 	 \n"
+      "\\textbf{changed qty} 	            & 	 \n"
+      "\\textbf{runtime monitor ID}         \\\\ \n"
+      "& & & & & &				            \\\\ \\hline \\hline \n";
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::Sql__EVENT___LOG___Footer_print_pdf_file
+    = "\\hline\n"
+      "\\end{tabular}}\n"
+      "\\end{table*}\n";
+
+
+
+QString YRI_DB_RUNTIME_VERIF_Utils::EN_template_CONSOLE_RAW_LOG_TEX_document("");
+
+const QString YRI_DB_RUNTIME_VERIF_Utils::FILE_YRI_DB_RUNTIME_VERIF_console_raw_log_PDF_TEMPLATE_EN(":EN_template_CONSOLE_RAW_LOG_TEX_document.tex");
 
 
 QString YRI_DB_RUNTIME_VERIF_Utils::EN_template_EVENT_LOG_TEX_document("");
@@ -309,15 +361,10 @@ YRI_DB_RUNTIME_VERIF_Utils::start_PROCESS_AND_GET_PROCESS_output_AS_QSTRING
 }
 
 
-int
-YRI_DB_RUNTIME_VERIF_Utils::
-
-start_PROCESS_AND_READ_PROCESS_output_INTO_FILE(const QString &
-                                                program_executable_location_full_path,
-                                                const QString &
-                                                output_file_full_path,
-                                                const QStringList &
-                                                program_executable_args)
+int YRI_DB_RUNTIME_VERIF_Utils::
+    start_PROCESS_AND_READ_PROCESS_output_INTO_FILE(const QString       &program_executable_location_full_path,
+                                                    const QString       &output_file_full_path,
+                                                    const QStringList   &program_executable_args)
 {
     QProcess A_YERITH_PROCESS;
 
@@ -345,6 +392,14 @@ start_PROCESS_AND_READ_PROCESS_output_INTO_FILE(const QString &
     tmpFile.close();
 
     return output_file_size;
+}
+
+
+void YRI_DB_RUNTIME_VERIF_Utils::ACTION__SET__TEXT__AND__Tooltip_Text(QAction &an_action,
+                                                                      QString  text)
+{
+    an_action.setToolTip(text);
+    an_action.setText(text);
 }
 
 
@@ -684,6 +739,33 @@ QString YRI_DB_RUNTIME_VERIF_Utils::LATEX_IN_OUT_handleForeignAccents(const QStr
 	tempText.replace(QString::fromUtf8("Û"), "\\^U");
 
 	return tempText;
+}
+
+
+void YRI_DB_RUNTIME_VERIF_Utils::
+        writeStringToQFilewithUTF8Encoding_IO(QFile    &a_content_output_file,
+                                              QString   a_file_content_string,
+                                              bool      TRUNCATER_FILE_BEFORE_WRITE /* = false */)
+{
+    if (TRUNCATER_FILE_BEFORE_WRITE)
+    {
+        if (a_content_output_file.open(QIODevice::WriteOnly))
+        {
+            a_content_output_file.write(a_file_content_string.toUtf8());
+            a_content_output_file.write("\n");
+        }
+    }
+    else
+    {
+        if (a_content_output_file.open(QIODevice::WriteOnly |
+                                       QIODevice::Append))
+        {
+            a_content_output_file.write(a_file_content_string.toUtf8());
+            a_content_output_file.write("\n");
+        }
+    }
+
+	a_content_output_file.close();
 }
 
 

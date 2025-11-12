@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-setup-window.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "src/windows/yri-db-runtime-verif-setup-window.hpp"
@@ -30,16 +30,13 @@ YRIDBRUNTIMEVERIF_SetupWindow::YRIDBRUNTIMEVERIF_SetupWindow()
 
 
 
-	lineEdit_pdf_reader_full_path
+    lineEdit_pdf_reader_full_path
         ->setText(YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader);
 
 
-    pushButton_STOP_LOGGING
-        ->enable(this, SLOT(ON_STOP__logging__SUT_ACTIONS()));
+	lineEdit_DBus_service_name_id
+        ->setText(YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name);
 
-
-    pushButton_START_LOGGING_from
-        ->enable(this, SLOT(ON_START__logging__SUT_ACTIONS()));
 
 
     pushButton_choose_pdfReader
@@ -79,57 +76,12 @@ void YRIDBRUNTIMEVERIF_SetupWindow::yri_show()
         ->setText(YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader);
 
 
+	lineEdit_DBus_service_name_id
+        ->setText(YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name);
+
+
 
     YRIDBRUNTIMEVERIF_CommonsWindow::yri_show();
-}
-
-
-void YRIDBRUNTIMEVERIF_SetupWindow::ON_STOP__logging__SUT_ACTIONS()
-{
-    YRIDBRUNTIMEVERIF_Windows *ALL_WINDOWS_INSTANCE =
-    		YRI_DB_RUNTIME_VERIF_Config::GET_ALL_WINDOWS_instance();
-
-    if (0 != ALL_WINDOWS_INSTANCE)
-    {
-        if (0 != ALL_WINDOWS_INSTANCE->_yrdbruntimeverif_main_Window)
-        {
-            QString SUT_string_ID = comboBox_SUT_identification->currentText();
-
-            if (!SUT_string_ID.isEmpty())
-            {
-                ALL_WINDOWS_INSTANCE
-                    ->_yrdbruntimeverif_main_Window
-                        ->Set___SUT__Logging(SUT_string_ID,
-                                             false);
-            }
-        }
-    }
-}
-
-
-void YRIDBRUNTIMEVERIF_SetupWindow::ON_START__logging__SUT_ACTIONS()
-{
-    YRIDBRUNTIMEVERIF_Windows *ALL_WINDOWS_INSTANCE =
-    		YRI_DB_RUNTIME_VERIF_Config::GET_ALL_WINDOWS_instance();
-
-    if (0 != ALL_WINDOWS_INSTANCE)
-    {
-        if (0 != ALL_WINDOWS_INSTANCE->_yrdbruntimeverif_main_Window)
-        {
-            QString SUT_string_ID = comboBox_SUT_identification->currentText();
-
-            if (!SUT_string_ID.isEmpty())
-            {
-                qDebug() << "|> strart logging of SYSTEM UDER TEST: "
-                         << SUT_string_ID;
-
-                ALL_WINDOWS_INSTANCE
-                    ->_yrdbruntimeverif_main_Window
-                        ->Set___SUT__Logging(SUT_string_ID,
-                                             true);
-            }
-        }
-    }
 }
 
 
@@ -146,8 +98,8 @@ void YRIDBRUNTIMEVERIF_SetupWindow::ON_choose_path_pdfReader()
     QString pdfReaderFilePath =
     		QFileDialog::getOpenFileName(this,
     									 QObject::tr("select a full path to a Pdf reader"),
-										 QString::null,
-										 QString::null);
+										 QString(),
+										 QString());
 
     if (!pdfReaderFilePath.isEmpty())
     {
@@ -207,6 +159,11 @@ void YRIDBRUNTIMEVERIF_SetupWindow::ON_pushButton_SAVE_parameters_PRESSED()
                                   QMessageBox::Ok))
     {
         YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader = lineEdit_pdf_reader_full_path->text();
+
+
+        YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name =
+            lineEdit_DBus_service_name_id->text();
+
 
         YRI_DB_RUNTIME_VERIF_Config::save_YRI_DB_RUNTIME_VERIF_Config();
     }

@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 
@@ -13,6 +13,7 @@
 #include "src/include/yri-db-runtime-verif-MONITOR.hpp"
 
 //yri-USER-RUNTIME-MONITOR-RELATED-IMPORTS
+
 //#######################################################################
 
 #include "src/utils/yri-db-runtime-verif-CONFIG.hpp"
@@ -65,8 +66,11 @@ QString text_init_cfg("");
 
 int main(int argc, char *argv[])
 {
-    qDebug() << "yri-db-runtime-verif | yri-db-runtime-verif.cpp | main. started"
-             << "\n";
+    //FIRST LOGGING before initializations.
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+            << "yri-db-runtime-verif | yri-db-runtime-verif.cpp | main. started"
+            << "\n";
 
 
     QApplication app(argc, argv);
@@ -82,7 +86,11 @@ int main(int argc, char *argv[])
 
     all_windows.createAll_YRIDBRUNTIMEVERIF_Windows();
 
-    YRI_DB_RUNTIME_VERIF_Config::SET_ALL_WINDOWS_instance(&all_windows);
+
+    YRI_DB_RUNTIME_VERIF_Config a_Config_OBJECT_MOC;
+
+    a_Config_OBJECT_MOC.SET_ALL_WINDOWS_instance(&all_windows);
+
 
     QToolBar &atoolBar = all_windows._yrdbruntimeverif_main_Window->get_tool_bar();
     //############################################################################################
@@ -93,14 +101,24 @@ int main(int argc, char *argv[])
         QString(std::getenv("YRI_DB_RUNTIME_VERIF_FILE_ABSOLUTEPATH_CONFIGURATION_PROPERTY_FILE")).trimmed();
 
 
+    YRI_DB_RUNTIME_VERIF_Config::YERITH_ERP_9_0_yri_db_runtime_verif_HOME_FOLDER =
+        QString(std::getenv("YRI_DB_RUNTIME_VERIF_HOME_FOLDER")).trimmed();
+
+
     YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER =
         QString(std::getenv("YRI_DB_RUNTIME_VERIF_HOME_FOLDER")).trimmed();
 
 
+    //FIRST LOGGING before initializations HERE EFFECTIVELY done !
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
 
 
-    qDebug() << "yri-db-runtime-verif.cpp | main | YRI-DB-RUNTIME-VERIF HOME FOLDER: "
-             << YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER;
+
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+        << "yri-db-runtime-verif.cpp | main | YRI-DB-RUNTIME-VERIF HOME FOLDER: "
+        << YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER;
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
 
 
     if (YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER.isEmpty())
@@ -110,7 +128,7 @@ int main(int argc, char *argv[])
 
         errMsg.append("PLEASE TRY logging out AND THEN logging in. \n\n"
         			  "In case yri-db-runtime-verif is still not functional,\n"
-        			  "please contact DR.-ING. DIPL.-INF. XAVIER NOUNDOU: "
+        			  "please contact Pr. Prof. Dr. Xavier Noundou: "
                       "'YERITH.xavier@gmail.com'.");
 
         QMessageBox::critical(&atoolBar,
@@ -124,23 +142,38 @@ int main(int argc, char *argv[])
 
     logFileName.append("/yri-db-runtime-verif.log");
 
-    qDebug() << "yri-db-runtime-verif.cpp | main | yri-db-runtime-verif home folder: "
-    		 << YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER;
+
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+            << "yri-db-runtime-verif.cpp | main | yri-db-runtime-verif home folder: "
+            << YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER;
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
 
 
 
     YRI_DB_RUNTIME_VERIF_Utils::setLogFileName(logFileName);
 
-    qDebug() << "yri-db-runtime-verif.cpp | main | log file name: "
-             << logFileName;
+
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+            << "yri-db-runtime-verif.cpp | main | log file name: "
+            << logFileName;
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
+
+
 
     YRI_DB_RUNTIME_VERIF_Logger logger(YRI_DB_RUNTIME_VERIF_Utils::getLogFileName());
 
 
 
-    qDebug() << "yri-db-runtime-verif.cpp | main | PROPERTY FILE YRI-DB-RUNTIME-VERIF.properties absolute file path: "
-             << YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_FILE_ABSOLUTEPATH_CONFIGURATION_PROPERTY_FILE
-             << "\n";
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+        << "yri-db-runtime-verif.cpp | main | PROPERTY FILE YRI-DB-RUNTIME-VERIF.properties absolute file path: "
+        << YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_FILE_ABSOLUTEPATH_CONFIGURATION_PROPERTY_FILE
+        << "\n";
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
+
+
 
     YRI_DB_RUNTIME_VERIF_Config::init_YRI_DB_RUNTIME_VERIF_Config
             (YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_FILE_ABSOLUTEPATH_CONFIGURATION_PROPERTY_FILE);
@@ -151,9 +184,13 @@ int main(int argc, char *argv[])
     				.arg(YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_HOME_FOLDER,
     					 "yri-db-runtime-verif-database-connection.properties"));
 
-    qDebug() << "yri-db-runtime-verif.cpp | main | yri-db-runtime-verif-database-connection.properties absolute file path: "
-             << initCfg
-             << "\n";
+
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
+    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
+        << "yri-db-runtime-verif.cpp | main | yri-db-runtime-verif-database-connection.properties absolute file path: "
+        << initCfg
+        << "\n";
+    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
 
 
 
@@ -172,7 +209,7 @@ int main(int argc, char *argv[])
 
         errMsg.append(QObject::tr("DATABASE SERVER: %1.\n\n"
                               	  "Last error message (%2).\n\n"
-                              	  "Please contact PROF. DR.-ING. DIPL.-INF. XAVIER NOUNDOU\n"
+                              	  "Please contact Pr. Prof. Dr. Xavier Noundou\n"
                               	  "\t(YERITH.xavier@gmail.com)\n")
         				.arg(database.db_ip_address(),
         					 database.lastError().text()));
@@ -193,6 +230,12 @@ int main(int argc, char *argv[])
     //         << "\n";
 
 
+    QFile file_EN_template_console_raw_log_TEX(YRI_DB_RUNTIME_VERIF_Utils::FILE_YRI_DB_RUNTIME_VERIF_console_raw_log_PDF_TEMPLATE_EN);
+
+    YRI_DB_RUNTIME_VERIF_Utils::YERITH_READ_FILE_CONTENT(file_EN_template_console_raw_log_TEX,
+                                                        YRI_DB_RUNTIME_VERIF_Utils::EN_template_CONSOLE_RAW_LOG_TEX_document);
+
+
 
     QFile file_EN_template_EVENT_LOG_TEX(YRI_DB_RUNTIME_VERIF_Utils::FILE_YRI_DB_RUNTIME_VERIF_EVENT_LOG_PDF_TEMPLATE_EN);
 
@@ -204,14 +247,14 @@ int main(int argc, char *argv[])
 
     //##################### RUNTIME MONITOR DECLARATION INSTANTIATION #####################
 
-    QVector<YRI_DB_RUNTIME_VERIF_Monitor *> user_defined_Runtime_Monitors;
-
     //yri-USER-RUNTIME-MONITOR-DECLARATION-INSTANTIATION
+
     //######################################################################################
 
 
 
-    QDBusConnection connection = QDBusConnection::systemBus();
+    YRI_DB_RUNTIME_VERIF_Config::qdbus_Application_Wide_connection = QDBusConnection::systemBus();
+
 
     QString systemYerothService =
         YRI_DB_RUNTIME_VERIF_Config::YRI_DB_RUNTIME_VERIF_SYSTEM_dbus_service_name;
@@ -228,12 +271,12 @@ int main(int argc, char *argv[])
     bool couldRegisterObject = false;
 
 
-    int rt_monitor_Vector_SIZE = user_defined_Runtime_Monitors.size();
+    int rt_monitor_Vector_SIZE = YRI_DB_RUNTIME_VERIF_Config::user_defined_Runtime_Monitors.size();
 
 
     for (uint k = 0; k < rt_monitor_Vector_SIZE; ++k)
     {
-        A_USER_DEFINED_RT_MONITOR = user_defined_Runtime_Monitors.at(k);
+        A_USER_DEFINED_RT_MONITOR = YRI_DB_RUNTIME_VERIF_Config::user_defined_Runtime_Monitors.at(k);
 
         if (0 != A_USER_DEFINED_RT_MONITOR)
         {
@@ -241,14 +284,16 @@ int main(int argc, char *argv[])
                 QString("/%1")
                  .arg(A_USER_DEFINED_RT_MONITOR->get_RUNTIME_MONITOR_NAME());
 
-            if (!connection.registerObject(current_RT_Monitor_OBJECT_ID_for_query_RPC_Dbus,
-                                           A_USER_DEFINED_RT_MONITOR))
+            if (!YRI_DB_RUNTIME_VERIF_Config::qdbus_Application_Wide_connection
+                    .registerObject(current_RT_Monitor_OBJECT_ID_for_query_RPC_Dbus,
+                                    A_USER_DEFINED_RT_MONITOR))
             {
                 QDEBUG_STRINGS_OUTPUT_1(QString("Could not register '%1' object")
                                         .arg(current_RT_Monitor_OBJECT_ID_for_query_RPC_Dbus));
 
                 QDEBUG_STRINGS_OUTPUT_1(QString("Last error: %1")
-                                        .arg(QDBusError::errorString(connection.lastError().type())));
+                                        .arg(QDBusError::errorString
+                                              (YRI_DB_RUNTIME_VERIF_Config::qdbus_Application_Wide_connection.lastError().type())));
 
                                         couldRegisterObject = false;
             }
@@ -269,15 +314,20 @@ int main(int argc, char *argv[])
     }
 
 
+    //I register all runtime monitors in tab 'Runtime Verification Monitors'.
+    all_windows._yrdbruntimeverif_main_Window
+        ->Update_RUNTIME_MONITOR_names();
+
+
     // REGISTERING DBUS SERVICE ON system bus !
 
-    if (!connection.registerService(systemYerothService))
+    if (!YRI_DB_RUNTIME_VERIF_Config::qdbus_Application_Wide_connection.registerService(systemYerothService))
     {
         QDEBUG_STRINGS_OUTPUT_1(QString("Could not Register '%1' SERVICE")
                                 .arg(systemYerothService));
 
         QDEBUG_STRINGS_OUTPUT_1(QString("Last error: %1")
-                                .arg(connection.lastError().message()));
+                                .arg(YRI_DB_RUNTIME_VERIF_Config::qdbus_Application_Wide_connection.lastError().message()));
 
         couldRegisterService = false;
     }

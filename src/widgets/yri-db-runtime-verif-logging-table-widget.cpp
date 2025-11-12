@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-logging-table-widget.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #include "yri-db-runtime-verif-logging-table-widget.hpp"
@@ -25,17 +25,27 @@ const unsigned int YRIDBRUNTIMEVERIF_TableWidget::changed_or_MODIFIED_database_Q
 
 
 
+const unsigned int YRIDBRUNTIMEVERIF_TableWidget::qDebug_Console_Raw_Column(1);
+
+
+
+
 YRIDBRUNTIMEVERIF_TableWidget::YRIDBRUNTIMEVERIF_TableWidget(QWidget *parent /* = 0 */)
 :QTableWidget(parent),
  _IS_CURRENTLY_FILTERED(false),
- _TIMESTAMPtem(0),
+ _qDebugConsoleRawItem(0),
+ _TIMESTAMP_Item(0),
  _SIGNALItem(0),
  _SOURCEItem(0),
  _TARGETItem(0),
  _changed_OR_modified_database_qty_Item(0),
  _runtime_monitor_QSTRING_ID_Item(0)
 {
+
+    _curRow__Tab__Console_Logging_Raw = 0;
+
     _curRow = 0;
+
 
     _myQStandardItemFlags = Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 
@@ -80,7 +90,7 @@ void YRIDBRUNTIMEVERIF_TableWidget::setQStandardItemFlags(Qt::ItemFlags &flags)
 
 
 void YRIDBRUNTIMEVERIF_TableWidget::setQStandardItemFlags(QTableWidgetItem &anItem,
-						   	   	   	   	   	   	   	     Qt::ItemFlags 	  &flags)
+						   	   	   	   	   	   	   	      Qt::ItemFlags    &flags)
 {
 	anItem.setTextAlignment(Qt::AlignVCenter | Qt::AlignHCenter);
 	anItem.setFlags(flags);
@@ -134,7 +144,7 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_3(QString Source_file__line_number)
     QString AN_ACCEPTING_STATE_is_error_state_VALUE = source_file__line_number_LIST.at(2);
 
 
-    _TIMESTAMPtem = new QTableWidgetItem(A_PREVIOUS_STATE);
+    _TIMESTAMP_Item = new QTableWidgetItem(A_PREVIOUS_STATE);
     _SIGNALItem = new QTableWidgetItem(AN_ACCEPTING_STATE);
     _SOURCEItem = new QTableWidgetItem(AN_ACCEPTING_STATE_is_error_state_VALUE);
 
@@ -143,11 +153,11 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_3(QString Source_file__line_number)
     unsigned idx = 0;
 
     //Each call to setItem triggers a call to YerothPointDeVenteWindow::handleQteChange
-    setItem(_curRow, idx++, _TIMESTAMPtem);
+    setItem(_curRow, idx++, _TIMESTAMP_Item);
     setItem(_curRow, idx++, _SIGNALItem);
     setItem(_curRow, idx++, _SOURCEItem);
 
-    setQStandardItemFlags(*_TIMESTAMPtem, _myQStandardItemFlags);
+    setQStandardItemFlags(*_TIMESTAMP_Item, _myQStandardItemFlags);
     setQStandardItemFlags(*_SIGNALItem, _myQStandardItemFlags);
     setQStandardItemFlags(*_SOURCEItem, _myQStandardItemFlags);
 
@@ -176,7 +186,7 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_2(QString SQL_QUERY_STRING,
     setRowCount(1);
 
 
-    _TIMESTAMPtem = new QTableWidgetItem(TIMESTAMP);
+    _TIMESTAMP_Item = new QTableWidgetItem(TIMESTAMP);
     _SIGNALItem = new QTableWidgetItem(SQL_QUERY_STRING);
 
 
@@ -185,10 +195,10 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_2(QString SQL_QUERY_STRING,
     unsigned idx = 0;
 
     //Each call to setItem triggers a call to YerothPointDeVenteWindow::handleQteChange
-    setItem(_curRow, idx++, _TIMESTAMPtem);
+    setItem(_curRow, idx++, _TIMESTAMP_Item);
     setItem(_curRow, idx++, _SIGNALItem);
 
-    setQStandardItemFlags(*_TIMESTAMPtem, _myQStandardItemFlags);
+    setQStandardItemFlags(*_TIMESTAMP_Item, _myQStandardItemFlags);
     setQStandardItemFlags(*_SIGNALItem, _myQStandardItemFlags);
 
     selectRow(_curRow);
@@ -227,7 +237,7 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_2(QString Source_file__line_number)
     QString line_number = source_file__line_number_LIST.at(1);
 
 
-    _TIMESTAMPtem = new QTableWidgetItem(Source_file);
+    _TIMESTAMP_Item = new QTableWidgetItem(Source_file);
     _SIGNALItem = new QTableWidgetItem(line_number);
 
     _mapListIdxToElement_db_ID.yri_insert_item(_curRow, Source_file__line_number);
@@ -235,10 +245,10 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_2(QString Source_file__line_number)
     unsigned idx = 0;
 
     //Each call to setItem triggers a call to YerothPointDeVenteWindow::handleQteChange
-    setItem(_curRow, idx++, _TIMESTAMPtem);
+    setItem(_curRow, idx++, _TIMESTAMP_Item);
     setItem(_curRow, idx++, _SIGNALItem);
 
-    setQStandardItemFlags(*_TIMESTAMPtem, _myQStandardItemFlags);
+    setQStandardItemFlags(*_TIMESTAMP_Item, _myQStandardItemFlags);
     setQStandardItemFlags(*_SIGNALItem, _myQStandardItemFlags);
 
     selectRow(_curRow);
@@ -266,22 +276,72 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_1(QString Precondition__Or__POST_CON
 
     setRowCount(1);
 
-    _TIMESTAMPtem = new QTableWidgetItem(Precondition__Or__POST_CONDITION);
+    _TIMESTAMP_Item = new QTableWidgetItem(Precondition__Or__POST_CONDITION);
 
     _mapListIdxToElement_db_ID.yri_insert_item(_curRow, Precondition__Or__POST_CONDITION);
 
     unsigned idx = 0;
 
     //Each call to setItem triggers a call to YerothPointDeVenteWindow::handleQteChange
-    setItem(_curRow, idx++, _TIMESTAMPtem);
+    setItem(_curRow, idx++, _TIMESTAMP_Item);
 
-    setQStandardItemFlags(*_TIMESTAMPtem, _myQStandardItemFlags);
+    setQStandardItemFlags(*_TIMESTAMP_Item, _myQStandardItemFlags);
 
     selectRow(_curRow);
 
     resize_columns_AND_rows_to_contents();
 
     return _curRow;
+}
+
+
+int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_Console_Raw_LOGGING(QString TIMESTAMP,
+                                                                QString STRING_FOR_console_raw)
+{
+//    QDEBUG_STRINGS_OUTPUT_2("YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM_Console_Raw_LOGGING",
+//                             QString("%1:%2:%3")
+//                                .arg(QString::number(getMaxSize()),
+//                                     TIMESTAMP,
+//                                     STRING_FOR_console_raw));
+
+    setRowCount(_curRow__Tab__Console_Logging_Raw + 1);
+
+
+    _TIMESTAMP_Item = new QTableWidgetItem(TIMESTAMP);
+    _TIMESTAMP_Item->setTextAlignment(Qt::AlignLeft);
+
+    _qDebugConsoleRawItem = new QTableWidgetItem(STRING_FOR_console_raw);
+    _qDebugConsoleRawItem->setTextAlignment(Qt::AlignLeft);
+
+
+    _CONSOLE_RAW_mapListIdxToElement_db_ID.yri_insert_item(_curRow__Tab__Console_Logging_Raw, STRING_FOR_console_raw);
+
+
+    unsigned idx = 0;
+
+
+    setItem(_curRow__Tab__Console_Logging_Raw, idx++, _TIMESTAMP_Item);
+    setItem(_curRow__Tab__Console_Logging_Raw, idx++, _qDebugConsoleRawItem);
+
+
+    selectRow(_curRow__Tab__Console_Logging_Raw);
+
+
+    resize_columns_AND_rows_to_contents();
+
+    int lastCurRow = _curRow__Tab__Console_Logging_Raw;
+
+
+    if (_curRow__Tab__Console_Logging_Raw <= getMaxSize())
+    {
+        ++_curRow__Tab__Console_Logging_Raw;
+    }
+    else
+    {
+        _curRow__Tab__Console_Logging_Raw = 0;
+    }
+
+    return lastCurRow;
 }
 
 
@@ -309,7 +369,7 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM(QString TIMESTAMPtem,
 
     if (LOGGING_INFO_VISIBLE)
     {
-        _TIMESTAMPtem = new QTableWidgetItem(TIMESTAMPtem);
+        _TIMESTAMP_Item = new QTableWidgetItem(TIMESTAMPtem);
         _SIGNALItem = new QTableWidgetItem(SIGNALItem);
         _SOURCEItem = new QTableWidgetItem(SOURCEItem);
         _TARGETItem = new QTableWidgetItem(TARGETItem);
@@ -330,8 +390,7 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM(QString TIMESTAMPtem,
         unsigned idx = 0;
 
 
-        //Each call to setItem triggers a call to YerothPointDeVenteWindow::handleQteChange
-        setItem(_curRow, idx++, _TIMESTAMPtem);
+        setItem(_curRow, idx++, _TIMESTAMP_Item);
         setItem(_curRow, idx++, _SIGNALItem);
         setItem(_curRow, idx++, _SOURCEItem);
         setItem(_curRow, idx++, _TARGETItem);
@@ -339,7 +398,7 @@ int YRIDBRUNTIMEVERIF_TableWidget::ADD_ITEM(QString TIMESTAMPtem,
         setItem(_curRow, idx++, _runtime_monitor_QSTRING_ID_Item);
 
 
-        setQStandardItemFlags(*_TIMESTAMPtem, _myQStandardItemFlags);
+        setQStandardItemFlags(*_TIMESTAMP_Item, _myQStandardItemFlags);
         setQStandardItemFlags(*_SIGNALItem, _myQStandardItemFlags);
         setQStandardItemFlags(*_SOURCEItem, _myQStandardItemFlags);
         setQStandardItemFlags(*_TARGETItem, _myQStandardItemFlags);
@@ -385,7 +444,7 @@ void YRIDBRUNTIMEVERIF_TableWidget::CLEAR_FILTERING()
     QTableWidgetItem *current_signal_item_two = 0;
 
 
-    for (uint row = 0; row < row_size; ++row)
+    for (int row = 0; row < row_size; ++row)
     {
         current_signal_item = item(row, SIGNALItem_COLUMN);
 
@@ -438,8 +497,6 @@ uint YRIDBRUNTIMEVERIF_TableWidget::FILTER_ITEM(const QString &SIGNALItem_TEXT,
 
 
     int row_size = rowCount();
-
-    int column_size = columnCount();
 
 
     static const uint SIGNALItem_COLUMN = 1;
@@ -527,8 +584,6 @@ uint YRIDBRUNTIMEVERIF_TableWidget::
 
     int row_size = rowCount();
 
-    int column_size = columnCount();
-
 
     static const uint SUT_SOURCEItem_COLUMN = 2;
 
@@ -538,7 +593,7 @@ uint YRIDBRUNTIMEVERIF_TableWidget::
     QString current_SUT_source_item_TEXT;
 
 
-    for (uint row = 0; row < row_size; ++row)
+    for (int row = 0; row < row_size; ++row)
     {
         current_SUT_source_item = item(row, SUT_SOURCEItem_COLUMN);
 

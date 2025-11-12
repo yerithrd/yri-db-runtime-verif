@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-COMMONS-window.cpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 

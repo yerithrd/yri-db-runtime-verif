@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-PROCESS.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_ERP_PROCESS_HPP_
@@ -33,9 +33,13 @@ public:
     {
     }
 
-    static bool STOP_yri_db_runtime_verif();
 
-    static bool START_yri_db_runtime_verif();
+    static void Deregister__ALL__RUNTIME__MONITORS();
+
+
+    static bool STOP__Restart__GTK_gui_yri_db_runtime_verif();
+
+    static bool START_yri_db_runtime_verif_GUI();
 
     static bool stopYerothERPAlertProcess();
 

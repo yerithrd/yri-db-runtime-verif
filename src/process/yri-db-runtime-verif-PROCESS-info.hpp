@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-PROCESS-info.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YRI_DB_RUNTIME_VERIF_UTILS_YERITH_PROCESS_INFO_HPP_

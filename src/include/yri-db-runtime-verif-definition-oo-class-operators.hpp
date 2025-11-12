@@ -1,7 +1,7 @@
 /*
  * yri-db-runtime-verif-definition-oo-class-operators.hpp
  *
- *      Author: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ *      Author: Pr. Prof. Dr. Xavier Noundou
  */
 
 #ifndef _YERITH_ERP_3_0_DEFINITION_OO_CLASS_OPERATORS_HPP_
