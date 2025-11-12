@@ -1,0 +1,6 @@
+
+
+YRI_DB_RUNTIME_VERIF_HOME_FOLDER=/opt/yri-db-runtime-verif
+
+export YRI_DB_RUNTIME_VERIF_HOME_FOLDER 
+

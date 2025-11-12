@@ -1,0 +1,583 @@
+
+\documentclass[9pt, a4paper]{article}
+\NeedsTeXFormat{LaTeX2e}
+
+%---------------------------- PACKAGE INCLUSION -------------------------------
+% This group renders characters clearer and more precise
+
+\RequirePackage[bitstream-charter,cal,expert]{mathdesign}
+\RequirePackage{charter}
+\RequirePackage{helvet}
+\RequirePackage{latexsym}
+
+
+\newcommand{\myYERITHxaviername}{\underline{Xavier} noumbissi \underline{Noundou}\xspace}
+
+\newcommand{\myYERITHacademicprofessionalTITLE}{Pr.\ \ Prof.\ \ Dr.--Ing.\xspace}
+
+\newcommand{\myacademicprofessionalname}{\underline{Xavier} noumbissi \underline{Noundou}~[\myYERITHacademicprofessionalTITLE]\xspace}
+
+%\newcommand{\myacademicprofessionalname}{''\textsc{\uppercase{\myYERITHacademicprofessionalTITLE}\ \ \underline{XAVIER} noumbissi \underline{NOUNDOU}}''\xspace}
+
+
+\usepackage{geometry}
+\geometry{a4paper,
+		  %showframe=true,
+		  %margin=2.75em,
+		  %a4paper,
+		  %total={170mm,257mm},
+		  top=3.5em,
+		  left=3em,
+		  right=3em,
+		  bottom=3.39em		  
+		  }
+
+%############# COMMAND TO SWITCH SECTION TITLE AND NUMBER COLOR #############
+\usepackage{titlesec}
+
+
+%\titleformat*{\subsubsection}{\color{firebrickred}}
+
+
+\newcommand{\SWITCHsectioncolor}[1]{
+\titleformat{\section}
+{\color{#1}\normalfont\Large\bfseries}
+{\color{#1}\thesection}{1em}{}
+}
+
+
+%COMMAND TO MODIFY CELL TABLE ROW HEIGHT
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+
+\usepackage{array,multirow,booktabs}
+
+\usepackage[default]{cantarell}
+
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{listings} % for lstset definitions
+\usepackage{url}
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{epsfig}
+\usepackage{booktabs}
+%\usepackage{enumitem} %funny itemize icons
+\usepackage{verbatim}
+\usepackage{tcolorbox}
+
+\usepackage{footnote}
+\usepackage{tabularx,caption}
+
+\usepackage{pagecolor}
+
+\usepackage{amsmath}
+\newcommand{\mathbold}[1]{\text{\textbf{#1}}}
+
+
+\usepackage{xcolor}
+\definecolor{yerithColorGOLD}{RGB}{204, 162, 14} 
+\definecolor{yerithColorOrange}{RGB}{242, 161, 0}  
+\definecolor{yerithColorDarkOrange}{RGB}{198, 70, 00}   
+\definecolor{yerithColorYellow}{RGB}{2, 200, 212}   
+\definecolor{yerithColorYELLOWrotarian}{RGB}{248, 228, 92}   
+\definecolor{yerithColorSILVER}{RGB}{90 , 90 , 90}
+\definecolor{yerithColorDarkBlue}{RGB}{77, 95, 180}
+\definecolor{yerithColorBlue}{RGB}{77 , 93 , 254}
+\definecolor{yerithColorRed}{RGB}{254, 48 , 48}
+\definecolor{yerithColorDarkred}{RGB}{165, 29, 45}
+\definecolor{yerithColorGray}{RGB}{198, 198, 198}
+\definecolor{yerithColorDarkgray}{RGB}{60, 60 , 60}
+\definecolor{yerithColorIndigo}{RGB}{83, 0, 125}
+\definecolor{yerithColorGreen}{RGB}{2  , 160, 70}
+\definecolor{forestgreen}{RGB}{2,160,70}    
+\definecolor{mediumblue}{RGB}{7,43,205}    
+\definecolor{firebrickred}{RGB}{178,34,34}
+\definecolor{listingray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\definecolor{yerithColorDarkgreen}{rgb}{0,0.35,0}
+\definecolor{medgreen}{rgb}{0,0.5,0}
+\definecolor{lightgreen}{rgb}{0.5,0.7,0.5}
+\definecolor{pmcolour}{rgb}{0.5,0.7,0.5}
+\definecolor{medgrey}{rgb}{0.6,0.6,0.6}
+\definecolor{purplish}{rgb}{0.4,0,0.6}
+\definecolor{brightred}{rgb}{1,0.2,0.2}
+
+
+\newcommand{\YERITHyerithcamerounITEM}[1]
+{\includegraphics[scale=0.03]{YERI_CAMEROUN_DRAPEAU.png} #1}
+
+
+\newcommand{\IMMEUBLEYERITH}{"Immeuble YERITH"\xspace}
+
+
+\newcommand{\IMMEUBLEYERITHWITHFLAGCAMEROON}{\textcolor{yerithColorGOLD}
+	{"Immeuble YERITH"}\xspace}
+
+
+\newcommand{\YECEFOIQBLACKCOLOR}{\texttt{YECEFOIQ}\xspace}
+
+
+\newcommand{\YECEFOIQ}{\texttt{\textcolor{yerithColorBlue}{YECEFOIQ}}\xspace}
+
+
+\newcommand{\YECEFOIQandACRONYM}{ {\footnotesize \texttt{\textcolor{yerithColorGOLD}{''YECEFOIQ sarl''} (YERITH-CENTRE DE FORMATION INFORMATIQUE)}}\xspace}
+			
+			
+\newcommand{\yerithdebian}{\texttt{DEBIAN LINUX}\xspace}
+
+
+\newcommand{\yerithrdWITHFLAG}{\textcolor{yerithColorDarkBlue}
+			{\textsc{\textcolor{yerithColorGOLD}{YERITH}}$_{\text{r\&d}}$}\xspace}
+
+
+\newcommand{\YERITHRD}{\textcolor{yerithColorDarkBlue}
+			{\textsc{\textcolor{yerithColorGOLD}{YERITH}}$_{\text{r\&d}}$}\xspace}
+
+
+\newcommand{\yerithrd}{\textcolor{yerithColorDarkBlue}
+			{\textsc{\textcolor{yerithColorGOLD}{Yerith}~R\&D}}\xspace}
+			
+\newcommand{\yerithrdblack}{\textsc{Yerith~R\&D}\xspace}
+
+
+\newcommand{\yerithpgicolored}{\textcolor{yerithColorBlue}{\sc 'YERITH--PGI--$\mathbf{9.0}$'}\xspace}
+
+\newcommand{\yerithpgi}{'\textsc{YERITH--PGI--$\mathbf{9.0}$}'\xspace}
+
+
+
+\newcommand{\yeritherpPlatiNUM}{\textsc{Yerith--Erp--$\mathbf{9.0}$--platinum}\xspace}
+
+\newcommand{\yeritherpPlatiNUMcolored}{\textcolor{yerithColorBlue}{\textsc{Yerith--Erp--$\mathbf{9.0}$--platinum}}\xspace}
+
+
+
+\newcommand{\yeritherpcolored}{\textcolor{yerithColorBlue}{\sc 'YERITH--ERP--$\mathbf{9.0}$'}\xspace}
+
+\newcommand{\yeritherp}{'\textsc{YERITH--ERP--$\mathbf{9.0}$}'\xspace}
+
+
+\newcommand{\procparagraph}[1]
+	{\paragraph{ \mycheckmark{purplish} \emph{\textcolor{purplish}{#1}}}}
+
+
+\usepackage{cite}
+
+\usepackage{etoolbox}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    hyperindex=true,
+	pagebackref,
+	urlcolor=medgreen,
+    citecolor=medgreen,
+    linkcolor=purplish,
+    breaklinks,
+    pdftex,
+    bookmarks,
+    plainpages=false,
+	pdftitle={},
+    pdfauthor={\yerithrdblack}
+}
+
+%--------------------------------------------------------------------------------
+
+
+
+%################################## Very useful for citations ##################################
+
+\newcommand{\yrihttpsurl}[1]{\colorlet{links}{yerithColorGreen}\url{https://#1}}
+
+\newcommand{\yrurl}[1]{\colorlet{links}{yerithColorGreen}\url{#1}}
+
+\newcommand{\yrhrefColorORIGINAL}[3][yerithColorDarkgreen]{\href{#2}{\color{#1}{#3}}}
+
+\newcommand{\yrhrefREDColoredNOUNDERLINED}[3][yerithColorDarkred]{\href{#2}{\color{#1}{#3}}}
+
+\newcommand{\yrhrefREDColored}[3][yerithColorDarkred]{\underline{\href{#2}{\color{#1}{#3}}}}
+
+\newcommand{\yrhref}[3][yerithColorDarkgreen]{\href{#2}{\color{#1}{#3}}}
+
+
+\newcommand{\yrihttps}[3][yerithColorDarkgreen]{\href{https://#2}{\color{#1}{#3}}}
+
+
+\newcommand{\yrfootnoteurl}[2]{\yrhref{#1}{#2}~\footnote{\yrurl{#1}}\xspace}
+
+\newcommand{\yrtexturl}[2]{\yrhref{#1}{#2} (\yrurl{#1})\xspace}
+
+
+\newcommand{\yrihttpsfootnoteurl}[2]{\yrihttps{#1}{#2}~\footnote{\yrurl{https://#1}}\xspace}
+
+\newcommand{\yrihttpstexturlSized}[3]{\yrihttps{#1}{#2} ({#3 \yrurl{https://#1}})\xspace}
+
+\newcommand{\yrihttpstexturl}[2]{\yrihttps{#1}{#2} (\yrurl{https://#1})\xspace}
+
+
+
+\usepackage[normalem]{ulem} %% \usepackage[normalem]{ulem} \sout{Hello World}  OR \usepackage{soul} \st{Hello World}
+
+
+%################################## Very useful for tables ##################################
+\usepackage{appendix}
+\usepackage{tabularx,caption}
+
+
+\newcommand{\YrtabularxRaggedRIGHTtextsized}[1]
+	{#1\raggedleft\arraybackslash}
+
+\newcommand{\YrtabularxRaggedRIGHT}[1]
+	{\small\raggedleft\arraybackslash}
+	
+	
+\newcommand{\YrtabularxRaggedLeftTextsized}[1]
+	{#1\raggedright\arraybackslash}
+
+\newcommand{\YrtabularxRaggedLeft}[1]
+	{\small\raggedright\arraybackslash}
+	
+
+\newcommand{\YrtabularxCenteringTEXTSIZE}[1]
+	{#1\centering\arraybackslash}
+
+\newcommand{\YrtabularxCentering}[1]
+	{\small\centering\arraybackslash}
+
+\newcommand{\numberyr}[1]
+	{\scriptsize $#1$.\ \xspace}
+
+
+
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+	#1 &
+	#2 \\
+\end{tabular*}}
+
+
+\newcommand{\headerrowFULLParbox}[3]{\headerrow{\parbox{#1}{#2}}{#3}}
+
+\newcommand{\headerrowPARBOXparameter}[2]{\headerrow{\parbox{#1}{#2}}{}}
+
+\newcommand{\headerrowspecificlength}[3]{\headerrow{\parbox{#2}{ {\scriptsize #1} }}{#3}}
+
+\newcommand{\headerrowONEspecificlength}[2]{\headerrow{\parbox{#2}{ {\scriptsize #1} }}{}}
+
+\newcommand{\headerrowONEcentered}[2]{\headerrow{\scriptsize \hspace*{#1\textwidth} #2}{}}
+
+\newcommand{\headerrowONE}[1]{\headerrow{\parbox{47em}{ {\scriptsize #1} }}{}}
+
+
+
+
+%%% Commandes pour des styles %%%
+
+\newcommand{\yremphsc}[1]{\textsc{\emph{#1}}\xspace}	
+
+\newcommand{\yremphscBF}[1]{\textsc{\emphbf{#1}}\xspace}	
+
+
+\newcommand{\emphbf}[1]{\emph{\textbf{#1}}\xspace}
+
+
+
+%%% Commandes pour des couleurs %%%
+
+\newcommand{\yrCOLORDarkredEmphSCBF}[1]
+	{\yremphscBF{\textcolor{yerithColorDarkred}{#1}}}
+
+\newcommand{\yrCOLORDarkred}[1]
+	{\textcolor{yerithColorDarkred}{#1}}
+	
+	
+\newcommand{\yrCOLOR}[2]
+	{\textcolor{#1}{#2}}
+	
+	
+\newcommand{\yrCOLORgold}[1]
+	{\textcolor{yerithColorGOLD}{#1}}
+
+
+
+
+
+
+
+
+% RESEARCH elements items
+\newcommand{\yrirschitemNOTEXTSC}[3]{\textcolor{yerithColorDarkgreen}{#1#2[\ref{#3}]}\xspace}
+
+\newcommand{\yrirschitem}[2]{\textcolor{yerithColorDarkgreen}{\textsc{#1}[\ref{#2}]}\xspace}
+
+\newcommand{\yrirschitemTextRESIZED}[3]{\textcolor{yerithColorDarkgreen}{{#1\textsc{#2}[\ref{#3}]}}\xspace}
+
+\newcommand{\yrirschitemFunction}[4]
+{\ifthenelse
+	{\equal{#1}{"apostrophe"}}
+	{\textcolor{yerithColorDarkgreen}{"#2\textsc{#3}[\ref{#4}]"}\xspace}
+	{\textcolor{yerithColorDarkgreen}{#2\textsc{#3}[\ref{#4}]}\xspace}}
+
+
+
+
+\newcommand{\YRIsdeuxtbed}{S$2$TBED\xspace}
+
+
+
+%%% FRANCAIS enumerations %%%
+
+\newcommand{\YRpremier}{$1^{\text{er}}$\xspace}
+
+\newcommand{\YRpremiere}{$1^{\text{ère}}$\xspace}	
+
+
+%%%%% ENGLISH enumarations %%%%%
+
+\newcommand{\YRth}[1]{$#1^{\text{th}}$\xspace}			
+			
+\newcommand{\YRthird}{$3^{\text{rd}}$\xspace}			
+			
+\newcommand{\YRsecond}{$2^{\text{nd}}$\xspace}			
+
+\newcommand{\YRfirst}{$1^{\text{st}}$\xspace}	
+
+\newcommand{\NOMS}[1]
+	{\ \underline{\guillemotleft\yremphscBF{#1}\guillemotright}\ \xspace}
+
+
+\newcommand{\francaisGUILLEMETS}[1]
+	{\ \guillemotleft#1\guillemotright\ }
+
+
+
+\newcommand{\yrimoney}[2]
+	{\underline{\yremphscBF"{"$\mathbf{#1}\ \ \text{#2}$"}}\xspace}
+
+\newcommand{\yrimoneyfrancs}[1]
+	{\yrCOLORDarkred{\underline{\yremphscBF{\guillemotleft~$\mathbf{#1}\ \ \text{FRANCS}$~\guillemotright}}}\xspace}
+
+\newcommand{\yrimoneyfrancsColored}[2]
+	{\yrCOLOR{#1}{\underline{\yremphscBF{\guillemotleft~$\mathbf{#2}\ \ \text{FRANCS}$~\guillemotright}}}\xspace}
+
+
+\newcommand{\moneybold}[1]{$\mathbf{#1}\ \ \text{FRANCS}$\xspace}
+
+\newcommand{\money}[1]{$#1\ \ \text{FRANCS}$\xspace}
+
+
+%---------------------------- COMMANDS DEFINITION -------------------------------
+
+\newcommand{\mycheckmark}[1]{\textcolor{#1}{$\checkmark$}\xspace}
+
+\newcommand{\yriurl}[1]{\colorlet{links}{yerithColorGreen}\url{#1}}
+
+\newcommand{\yrcellphone}{$\mathbf{(+237)\ [6\ 97\ 19\ 49\ 06]}$~/~$\mathbf{[6\ 52\ 39\ 69\ 50]}$\xspace}
+
+
+\newcommand{\YERITHpdfITEM}[1]
+{
+	\includegraphics[scale=0.009]{images/PDF_YERITH_icon.png}\ #1\xspace
+}
+
+\newcommand{\YERITHpdfITEMITEM}[1]{
+	\YERITHpdfITEM{\textcolor{yerithColorBlue}{\textbf{\underline{\emph{#1}}}}}
+}
+
+
+
+\newcommand{\HREFlinkJHNISSICOMPENDIUMtextURL}[1]
+	{\yrihttpstexturl{www.zenodo.org/record/8052724/}{#1}\xspace}
+		
+\newcommand{\HREFlinkJHNISSICOMPENDIUM}[1]
+	{\yrhref{https://www.zenodo.org/record/8052724/}{#1}\xspace}
+
+\newcommand{\yeritherpPlatiNUMwithHREFLINK}{\YERITHpdfITEMITEM{\HREFlinkJHNISSICOMPENDIUM{\yeritherpPlatiNUMcolored}}}
+
+
+
+\newcommand{\toolyridbruntimeverif}{\textsc{YRI--DB--RUNTIME--VERIF}\xspace}
+
+\newcommand{\toolyridbruntimeverifSCRIPTSIZE}{{\scriptsize\textsc{YRI--DB--RUNTIME--VERIF}}\xspace}
+
+
+\newcommand{\YRIQVGEPCTablet}{\yremphscBF{YRI--QVGE--PC--Tablet}}
+
+
+\newcommand{\HREFlinkYRIQVGETextURL}[1]
+	{\yrihttpstexturl{www.zenodo.org/records/10474033}{#1}}
+				
+\newcommand{\HREFlinkYRIQVGE}[1]
+	{\yrhref{https://www.zenodo.org/records/10474033}{#1}}
+	
+
+\newcommand{\HREFlinkzenodoorgYRQVGEtexturl}[1]
+	{\yrihttpstexturl{www.zenodo.org/records/13232567}{#1}\xspace}
+	
+\newcommand{\HREFlinkzenodoorgYRQVGE}[1]
+	{\yrhrefColorORIGINAL{https://www.zenodo.org/records/13232567}{#1}\xspace}
+
+
+\newcommand{\HREFlinkSPLASHICTSStexturl}[1]
+	{\yrihttpstexturl{www.zenodo.org/record/8051303}{#1}\xspace}
+	
+\newcommand{\HREFlinkSPLASHICTSS}[1]
+	{\yrhref{https://www.zenodo.org/record/8051303}{#1}\xspace}
+
+
+
+
+\newcommand{\yerithqvgePLAINtext}{\texttt{YERITH\_QVGE}\xspace}
+
+\newcommand{\yriqvge}{\texttt{YRI\_QVGE}\xspace}
+
+
+\newcommand{\yerithqvge}{\YERITHpdfITEMITEM{\HREFlinkYRIQVGE{\texttt{YERITH\_QVGE}}}}
+
+
+\newcommand{\yrjunitfive}{\yrhref{https://junit.org/junit5}{JUnit}\xspace}
+
+
+\newcommand{\cplusplus}{\texttt{C}$^{++}$\xspace}
+
+
+\newcommand{\yridbruntimeverif}{\textsc{YRI--DB--RUNTIME--VERIF}\xspace}
+
+\newcommand{\plainSDMM}{\textsc{SDMM}\xspace}
+
+
+%--------------------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\newcommand{\changefont}[3]{
+\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+\changefont{cmss}{m}{n}
+
+\renewcommand\labelenumi{\theenumi)}
+
+\pagenumbering{arabic}
+
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{}
+\lhead{}
+\lfoot{}
+\rfoot{}
+%\rfoot{{\small Date: ~\today~}}
+\cfoot{\DOCUMENTyriFOOTER}
+
+
+%Remove widows and orphants
+\hyphenpenalty = 10000
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\usepackage{sectsty}
+
+\sectionfont{\fontsize{15}{18}\selectfont}
+
+\pdfminorversion=7
+
+
+
+%%% FOOTER pour 1 nouvelle page~/~feuille.
+\newcommand{\DOCUMENTyriFOOTER}
+	{%%% Entete pour 1 nouvelle page~/~feuille.
+	 \scriptsize \vspace*{-1.56em} \hrule \vspace*{0.05em} 
+	 \yremphscBF{\yrcellphone -- \yriurl{Yerith.Xavier@gmail.com} -- \yerithrd -- \IMMEUBLEYERITHWITHFLAGCAMEROON -- barrière-Simbok -- Yaounde~VI -- Cameroon}}
+
+%%% Entete pour 1 nouvelle page~/~feuille.
+\newcommand{\DOCUMENTyriEntete}
+	{%%% Entete pour 1 nouvelle page~/~feuille.
+	{\bf \Large \yerithrdWITHFLAG} {| \sc \footnotesize \yremphscBF{\francaisGUILLEMETS{\ Testing Protocol for TAINT--Analysis\ } \hfill \thepage~/~\pageref{LastPage}}}
+	\\ \line(1,0){540} \\
+	\vspace{0.01em}}
+
+
+\begin{document}
+
+\sloppy
+
+\small 
+
+
+\DOCUMENTyriEntete
+
+
+We want to have a testing for the implementation of taint analysis
+because it is quite complicated to have it as a modular unit within
+\yridbruntimeverif.
+
+Therefore I need to test and implement it thoroughly since having it
+working would empower users of \yridbruntimeverif to specify parametric
+value in their state diagram mealy machine~(\plainSDMM).
+
+\begin{center}
+\captionof{figure}{A taint analysis ''\plainSDMM'' to test 
+	parametric \plainSDMM. }
+\label{fig:A_RUNNING_EXAMPLE_taintanalysis_current_test_One}
+%\resizebox{\columnwidth}{!}{
+\includegraphics[scale=0.45]{YERITH_QVGE_sample_TaintAnalysis.pdf}
+%}
+\end{center}
+
+\subsection*{Test--1}
+
+\vspace*{0.95em}
+
+\begin{enumerate}[$1.)$]
+	\itemsep 0.95em
+	
+	\item After implementation of taint analysis functionality,
+		the current running instance of \yridbruntimeverif needs 
+		to be stopped \& restarted with a new binary.
+		\scriptsize
+		\begin{verbatim}
+			yri_DB_RUNTIME_VERIF_uninstall.sh && yri_DB_RUNTIME_VERIF_INSTALL.SH && sudo systemctl stop yri-db-runtime-verif
+		\end{verbatim}
+		\small
+	
+	\item then start a newer instance directly without calling 
+		it as a system daemon.
+		\begin{verbatim}
+			/opt/yri-db-runtime-verif/bin/yri-db-runtime-verif
+		\end{verbatim}
+	
+	
+	\item Then start \yeritherp.
+	
+	
+	\item Particularly we need to check for instance that any
+		string input from a \texttt{"YeritLineEdit"} GUI widget
+		is coined as a tainted input except if it was also 
+		passed into a sanitizer method;
+		
+		To test this, Tainted--Analysis functionality, we created
+		a \plainSDMM using \yriqvge~:~Figure~\ref{fig:A_RUNNING_EXAMPLE_taintanalysis_current_test_One}
+		illustrates this tainted analysis as a \plainSDMM.
+\end{enumerate}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

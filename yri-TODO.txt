@@ -1,0 +1,3 @@
+1. Create a local configuration file for each user of a GUI.
+2. Add a 'logging status' persistent over several GUI sessions
+   by adding it into a local configuration file.
