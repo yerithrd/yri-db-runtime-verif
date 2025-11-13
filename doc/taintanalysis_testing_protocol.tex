@@ -539,6 +539,15 @@ value in their state diagram mealy machine~(\plainSDMM).
 \begin{enumerate}[$1.)$]
 	\itemsep 0.95em
 	
+	\item Compilation of \yridbruntimeverif and automatic creation
+		of a '.deb' installation package is done with following
+		command~:~
+		\scriptsize
+		\begin{verbatim}
+			./yri_db_runtime_verif_BUILD_DEBIAN_PACKAGE.sh
+		\end{verbatim}
+		\small	
+	
 	\item After implementation of taint analysis functionality,
 		the current running instance of \yridbruntimeverif needs 
 		to be stopped \& restarted with a new binary.
