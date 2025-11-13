@@ -26,3 +26,6 @@ ui_*
 *.out 
 *.toc
 *.xgr
+*.synctex.gz
+*.layout
+*.cbp
