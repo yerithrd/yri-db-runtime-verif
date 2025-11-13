@@ -1,10 +1,10 @@
 /*
-* yri_sd_runtime_verif_language_EXAMPLE_realcase.hpp
+* YERITH_QVGE_sample_PAPER_extended_version_PROPERY.hpp
 *
 */
 
-#ifndef _YRI_DB_VERIF_RUNTIME_MONITOR_yri_sd_runtime_verif_language_EXAMPLE_realcase_HPP_
-#define _YRI_DB_VERIF_RUNTIME_MONITOR_yri_sd_runtime_verif_language_EXAMPLE_realcase_HPP_
+#ifndef _YRI_DB_VERIF_RUNTIME_MONITOR_YERITH_QVGE_sample_PAPER_extended_version_PROPERY_HPP_
+#define _YRI_DB_VERIF_RUNTIME_MONITOR_YERITH_QVGE_sample_PAPER_extended_version_PROPERY_HPP_
 
 #include "include/yri-db-runtime-verif-MONITOR__Analysis_CHECKING_Testing.hpp"
 
@@ -20,7 +20,7 @@ class YRI_CPP_MONITOR_EDGE;
 class YRI_CPP_MONITOR;
 
 
-class yri_sd_runtime_verif_language_EXAMPLE_realcase : public YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING
+class YERITH_QVGE_sample_PAPER_extended_version_PROPERY : public YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING
 {
     Q_OBJECT
 
@@ -29,11 +29,11 @@ public:
     static void YRI_CALL_BACK_final_state(YRI_CPP_MONITOR 		*a_runtime_monitor,
                                           YRI_CPP_MONITOR_EDGE 	*an_EDGE_leading_TO_error_FINAL_state);
 
-    yri_sd_runtime_verif_language_EXAMPLE_realcase();
+    YERITH_QVGE_sample_PAPER_extended_version_PROPERY();
 
-    yri_sd_runtime_verif_language_EXAMPLE_realcase(YRI_DB_RUNTIME_VERIF_Logger *logger);
+    YERITH_QVGE_sample_PAPER_extended_version_PROPERY(YRI_DB_RUNTIME_VERIF_Logger *logger);
 
-    virtual inline ~yri_sd_runtime_verif_language_EXAMPLE_realcase()
+    virtual inline ~YERITH_QVGE_sample_PAPER_extended_version_PROPERY()
     {
     }
 
@@ -59,5 +59,5 @@ public slots:
 };
 
 
-#endif /* _YRI_DB_VERIF_RUNTIME_MONITOR_yri_sd_runtime_verif_language_EXAMPLE_realcase_HPP_ */
+#endif /* _YRI_DB_VERIF_RUNTIME_MONITOR_YERITH_QVGE_sample_PAPER_extended_version_PROPERY_HPP_ */
 

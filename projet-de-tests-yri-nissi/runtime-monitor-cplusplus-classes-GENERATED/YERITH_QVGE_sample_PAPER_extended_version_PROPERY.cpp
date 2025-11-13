@@ -1,9 +1,9 @@
 /*
-* yri_sd_runtime_verif_language_EXAMPLE_realcase.cpp
+* YERITH_QVGE_sample_PAPER_extended_version_PROPERY.cpp
 *
 */
 
-#include "yri_sd_runtime_verif_language_EXAMPLE_realcase.hpp"
+#include "YERITH_QVGE_sample_PAPER_extended_version_PROPERY.hpp"
 
 
 #include <QtSql/QSqlRecord>
@@ -20,7 +20,7 @@
 #include "yri_sd_runtime_verif/YRI_CPP_MONITOR_EDGE.hpp"
 
 
-void yri_sd_runtime_verif_language_EXAMPLE_realcase::YRI_CALL_BACK_final_state(YRI_CPP_MONITOR 			*a_runtime_monitor,
+void YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YRI_CALL_BACK_final_state(YRI_CPP_MONITOR 			*a_runtime_monitor,
         YRI_CPP_MONITOR_EDGE 	*an_EDGE_leading_TO_error_FINAL_state)
 {
     if (0 != a_runtime_monitor)
@@ -32,15 +32,15 @@ void yri_sd_runtime_verif_language_EXAMPLE_realcase::YRI_CALL_BACK_final_state(Y
 
 
 
-yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EXAMPLE_realcase()
+YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YERITH_QVGE_sample_PAPER_extended_version_PROPERY()
     :YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING()
 {
     ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
 
-    set_RUNTIME_MONITOR_NAME("yri_sd_runtime_verif_language_EXAMPLE_realcase");
+    set_RUNTIME_MONITOR_NAME("YERITH_QVGE_sample_PAPER_extended_version_PROPERY");
 
 
-    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("A", "E");
+    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("YRI", "E");
     a_last_edge_1->get_SOURCE_STATE()->set_START_STATE(*this, true);
     a_last_edge_1->get_TARGET_STATE()->set_ERROR_STATE(true);
     a_last_edge_1->get_SOURCE_STATE()->set_PRE_CONDITION_notIN("YRI_ASSET", "departements_produits.nom_departement_produit");
@@ -55,7 +55,7 @@ yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EX
     YRI_CPP_notinset_inset_TRACE_expression *a_last_edge_1_GUARDED_CONDITION
         = new YRI_CPP_notinset_inset_TRACE_expression(true,
                 "'DELETE.departements_produits.YRI_ASSET'",
-                "A");
+                "YRI");
 
     a_last_edge_1->set_GUARDED_CONDITION(a_last_edge_1_GUARDED_CONDITION);
 
@@ -68,15 +68,15 @@ yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EX
 }
 
 
-yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EXAMPLE_realcase(YRI_DB_RUNTIME_VERIF_Logger *logger)
+YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YERITH_QVGE_sample_PAPER_extended_version_PROPERY(YRI_DB_RUNTIME_VERIF_Logger *logger)
     :YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING(logger)
 {
     ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
 
-    set_RUNTIME_MONITOR_NAME("yri_sd_runtime_verif_language_EXAMPLE_realcase");
+    set_RUNTIME_MONITOR_NAME("YERITH_QVGE_sample_PAPER_extended_version_PROPERY");
 
 
-    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("A", "E");
+    YRI_CPP_MONITOR_EDGE *a_last_edge_1 = create_yri_monitor_edge ("YRI", "E");
     a_last_edge_1->get_SOURCE_STATE()->set_START_STATE(*this, true);
     a_last_edge_1->get_TARGET_STATE()->set_ERROR_STATE(true);
     a_last_edge_1->get_SOURCE_STATE()->set_PRE_CONDITION_notIN("YRI_ASSET", "departements_produits.nom_departement_produit");
@@ -91,7 +91,7 @@ yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EX
     YRI_CPP_notinset_inset_TRACE_expression *a_last_edge_1_GUARDED_CONDITION
         = new YRI_CPP_notinset_inset_TRACE_expression(true,
                 "'DELETE.departements_produits.YRI_ASSET'",
-                "A");
+                "YRI");
 
     a_last_edge_1->set_GUARDED_CONDITION(a_last_edge_1_GUARDED_CONDITION);
 
@@ -112,7 +112,7 @@ yri_sd_runtime_verif_language_EXAMPLE_realcase::yri_sd_runtime_verif_language_EX
 * A SERIOUS VERIFICATION CLIENT MUST OVERRIDE THIS
 * METHOD !
 */
-bool yri_sd_runtime_verif_language_EXAMPLE_realcase::DO_VERIFY_AND_or_CHECK_ltl_PROPERTY(
+bool YERITH_QVGE_sample_PAPER_extended_version_PROPERY::DO_VERIFY_AND_or_CHECK_ltl_PROPERTY(
     QString sql_table_ADDED_with_file_AND_line_number,
     uint	sql_record_qty_MODIFIED,
     YRI_CPP_UTILS::SQL_CONSTANT_IDENTIFIER cur_SQL_command
@@ -160,7 +160,7 @@ bool yri_sd_runtime_verif_language_EXAMPLE_realcase::DO_VERIFY_AND_or_CHECK_ltl_
 }
 
 
-bool yri_sd_runtime_verif_language_EXAMPLE_realcase::YRI_SQL_SELECT_departements_produits___Event()
+bool YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YRI_SQL_SELECT_departements_produits___Event()
 {
     return YRI_trigger_an_edge_event("'SELECT.departements_produits'");
 }
