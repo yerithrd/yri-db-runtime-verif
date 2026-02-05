@@ -37,7 +37,6 @@ FORMS = ui/yri-db-runtime-verif-setup-window.ui \
 
 HEADERS = src/windows/yri-db-runtime-verif-COMMONS-window.hpp \
 			src/windows/yri-db-runtime-verif-setup-window.hpp \
-			src/client_analysis/YERITH_QVGE_sample___CLIENT___TaintAnalysis.hpp \
 			src/utils/yri-db-runtime-verif-LOGGING-INFO.hpp \
 			src/widgets/yri-db-runtime-verif-combo-box.hpp \
 			src/utils/yri-db-runtime-verif-qmap.hpp \
@@ -63,7 +62,6 @@ HEADERS = src/windows/yri-db-runtime-verif-COMMONS-window.hpp \
 
 SOURCES = src/windows/yri-db-runtime-verif-COMMONS-window.cpp \
 			src/windows/yri-db-runtime-verif-setup-window.cpp \
-			src/client_analysis/YERITH_QVGE_sample___CLIENT___TaintAnalysis.cpp \
 			src/utils/yri-db-runtime-verif-LOGGING-INFO.cpp \
 			src/widgets/yri-db-runtime-verif-combo-box.cpp \
 			src/utils/yri-db-runtime-verif-qmap.cpp \
@@ -87,7 +85,13 @@ SOURCES = src/windows/yri-db-runtime-verif-COMMONS-window.cpp \
 
 
 
-#YRI-USER-CODE-INCLUDE
+HEADERS += $$files($$PWD/src/YERITH_ERP_PGI_9_0_Checking_INSERTION_cancellation_matter_1.hpp)
+SOURCES += $$files($$PWD/src/YERITH_ERP_PGI_9_0_Checking_INSERTION_cancellation_matter_1.cpp)
+
+HEADERS += $$files($$PWD/src/YERITH_QVGE_sample_PAPER_extended_version_PROPERY.hpp)
+SOURCES += $$files($$PWD/src/YERITH_QVGE_sample_PAPER_extended_version_PROPERY.cpp)
+
+
 
 
 
