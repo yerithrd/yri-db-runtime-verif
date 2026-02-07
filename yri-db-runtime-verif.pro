@@ -84,14 +84,7 @@ SOURCES = src/windows/yri-db-runtime-verif-COMMONS-window.cpp \
 			src/utils/yri-db-runtime-verif-database.cpp
 
 
-
-HEADERS += $$files($$PWD/src/YERITH_ERP_PGI_9_0_Checking_INSERTION_cancellation_matter_1.hpp)
-SOURCES += $$files($$PWD/src/YERITH_ERP_PGI_9_0_Checking_INSERTION_cancellation_matter_1.cpp)
-
-HEADERS += $$files($$PWD/src/YERITH_QVGE_sample_PAPER_extended_version_PROPERY.hpp)
-SOURCES += $$files($$PWD/src/YERITH_QVGE_sample_PAPER_extended_version_PROPERY.cpp)
-
-
+#YRI-USER-CODE-INCLUDE
 
 
 
