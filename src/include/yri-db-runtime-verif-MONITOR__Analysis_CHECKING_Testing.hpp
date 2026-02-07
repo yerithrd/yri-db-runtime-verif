@@ -54,7 +54,7 @@ public slots:
     /**
      * SETUP code for a tainted analysis.
      */
-    virtual bool ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
+//    virtual bool ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
 
 
     virtual bool ___Fixture__Insert___INTO__DB__SQL__values___(QString a_Sql_Table_DATABASE_Column___Property,

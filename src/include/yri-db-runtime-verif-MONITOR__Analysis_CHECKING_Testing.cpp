@@ -68,38 +68,38 @@ QString YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING::
 }
 
 
-bool YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING::
-            ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___()
-{
-    QString query_STRING_for_sql_db_table_CreatiON =
-                ___CREATE___Analysis___DB_SQL_table_creation_MariaDB_query();
-
-
-
-    if (query_STRING_for_sql_db_table_CreatiON.isEmpty())
-    {
-        return false;
-    }
-
-
-
-    bool creation_of_db_sql_table = YRI_DB_RUNTIME_VERIF_Utils::execQuery(query_STRING_for_sql_db_table_CreatiON);
-
-
-    if (! creation_of_db_sql_table)
-    {
-        QDEBUG_STRING_OUTPUT_2("COULDN'T CREATE analysis SQL database table named:--",
-                                GET___sql_db_table_name());
-    }
-    else
-    {
-        QDEBUG_STRING_OUTPUT_2("COULD CREATE analysis SQL database table named:--",
-                                GET___sql_db_table_name());
-    }
-
-
-    return creation_of_db_sql_table;
-}
+//bool YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING::
+//            ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___()
+//{
+//    QString query_STRING_for_sql_db_table_CreatiON =
+//                ___CREATE___Analysis___DB_SQL_table_creation_MariaDB_query();
+//
+//
+//
+//    if (query_STRING_for_sql_db_table_CreatiON.isEmpty())
+//    {
+//        return false;
+//    }
+//
+//
+//
+//    bool creation_of_db_sql_table = YRI_DB_RUNTIME_VERIF_Utils::execQuery(query_STRING_for_sql_db_table_CreatiON);
+//
+//
+//    if (! creation_of_db_sql_table)
+//    {
+//        QDEBUG_STRING_OUTPUT_2("COULDN'T CREATE analysis SQL database table named:--",
+//                                GET___sql_db_table_name());
+//    }
+//    else
+//    {
+//        QDEBUG_STRING_OUTPUT_2("COULD CREATE analysis SQL database table named:--",
+//                                GET___sql_db_table_name());
+//    }
+//
+//
+//    return creation_of_db_sql_table;
+//}
 
 
 bool YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING::
