@@ -35,8 +35,6 @@ void YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YRI_CALL_BACK_final_stat
 YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YERITH_QVGE_sample_PAPER_extended_version_PROPERY()
     :YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING()
 {
-    ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
-
     set_RUNTIME_MONITOR_NAME("YERITH_QVGE_sample_PAPER_extended_version_PROPERY");
 
 
@@ -71,8 +69,6 @@ YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YERITH_QVGE_sample_PAPER_exte
 YERITH_QVGE_sample_PAPER_extended_version_PROPERY::YERITH_QVGE_sample_PAPER_extended_version_PROPERY(YRI_DB_RUNTIME_VERIF_Logger *logger)
     :YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING(logger)
 {
-    ___Fixture___CREATE_Tainted_Analysis_DB_SQL_table_ONCE___();
-
     set_RUNTIME_MONITOR_NAME("YERITH_QVGE_sample_PAPER_extended_version_PROPERY");
 
 
@@ -128,18 +124,13 @@ bool YERITH_QVGE_sample_PAPER_extended_version_PROPERY::DO_VERIFY_AND_or_CHECK_l
     QString cpp_line_number = sql_table_ADDED_with_file_AND_line_number_LIST.at(2);
 
 
-    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List.clear();
-
-    YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List
-             << QString("[C++_STMT (%1.%2)[%3,%4] at %5:%6]")
-                 .arg(YRI_CPP_UTILS::_DB_STMT_verification_ToUserViewString.value(cur_SQL_command),
-                     sql_table_name,
-                     QString::number(cur_SQL_command),
-                     QString::number(sql_record_qty_MODIFIED),
-                     CPP_FILE_NAME,
-                     cpp_line_number);
-
-    QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(YRI_DB_RUNTIME_VERIF_Logger::Console_Raw_STR_MSG_List);
+    qDebug() << "\t "
+             << QString("[C++_STMT (%1.%2)[%3,%4] at %5:%6]").
+             arg(YRI_CPP_UTILS::_DB_STMT_verification_ToUserViewString.
+                 value(cur_SQL_command), sql_table_name,
+                 QString::number(cur_SQL_command),
+                 QString::number(sql_record_qty_MODIFIED), CPP_FILE_NAME,
+                 cpp_line_number);
 
 
     switch(cur_SQL_command)
@@ -148,9 +139,9 @@ bool YERITH_QVGE_sample_PAPER_extended_version_PROPERY::DO_VERIFY_AND_or_CHECK_l
         break;
 
     case YRI_CPP_UTILS::SELECT:
-        if (YRI_DB_RUNTIME_VERIF_Utils::isEqualsCaseInsensitive(sql_table_name, "departements_produits"))
+        if (YRI_DB_RUNTIME_VERIF_Utils::isEqualsCaseInsensitive(sql_table_name, "stocks"))
         {
-            YRI_SQL_SELECT_departements_produits___Event();
+            return YRI_SQL_SELECT_departements_produits___Event();
         }
         break;
 
