@@ -2157,9 +2157,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -2171,9 +2168,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
       <column>
@@ -2187,9 +2181,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -2201,9 +2192,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
       <column>
@@ -2217,9 +2205,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -2231,9 +2216,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -2785,9 +2767,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -2799,9 +2778,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -3356,9 +3332,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -3370,9 +3343,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -3921,9 +3891,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -3936,9 +3903,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -3950,9 +3914,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -5456,9 +5417,6 @@
          <pointsize>8</pointsize>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -5471,9 +5429,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -5483,9 +5438,6 @@
         <font>
          <pointsize>8</pointsize>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -6033,9 +5985,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -6586,9 +6535,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -8142,9 +8088,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -8156,9 +8099,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
       <column>
@@ -8172,9 +8112,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -8186,9 +8123,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
       <column>
@@ -8202,9 +8136,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -8216,9 +8147,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -8770,9 +8698,6 @@
          <bold>true</bold>
         </font>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
       <column>
        <property name="text">
@@ -8784,9 +8709,6 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
        </property>
       </column>
      </widget>
@@ -11630,10 +11552,10 @@
          </colorrole>
          <colorrole role="PlaceholderText">
           <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+           <color alpha="128">
+            <red>2</red>
+            <green>160</green>
+            <blue>70</blue>
            </color>
           </brush>
          </colorrole>
@@ -11785,10 +11707,10 @@
          </colorrole>
          <colorrole role="PlaceholderText">
           <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+           <color alpha="128">
+            <red>2</red>
+            <green>160</green>
+            <blue>70</blue>
            </color>
           </brush>
          </colorrole>
@@ -11940,10 +11862,10 @@
          </colorrole>
          <colorrole role="PlaceholderText">
           <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
+           <color alpha="128">
+            <red>2</red>
+            <green>160</green>
+            <blue>70</blue>
            </color>
           </brush>
          </colorrole>
@@ -12557,9 +12479,9 @@ background-color: rgb(0, 0, 0);</string>
      <widget class="YRIDBRUNTIMEVERIF_ComboBox" name="comboBox_RUNTIME_MONITOR_NAMES">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>210</x>
         <y>6</y>
-        <width>540</width>
+        <width>500</width>
         <height>21</height>
        </rect>
       </property>
@@ -13076,7 +12998,7 @@ background-color: rgb(0, 0, 0);</string>
        <rect>
         <x>4</x>
         <y>5</y>
-        <width>163</width>
+        <width>203</width>
         <height>21</height>
        </rect>
       </property>
@@ -13452,10 +13374,10 @@ background-color: rgb(0, 0, 0);</string>
        </colorrole>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+         <color alpha="128">
+          <red>2</red>
+          <green>160</green>
+          <blue>70</blue>
          </color>
         </brush>
        </colorrole>
@@ -13598,10 +13520,10 @@ background-color: rgb(0, 0, 0);</string>
        </colorrole>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+         <color alpha="128">
+          <red>2</red>
+          <green>160</green>
+          <blue>70</blue>
          </color>
         </brush>
        </colorrole>
@@ -13744,10 +13666,10 @@ background-color: rgb(0, 0, 0);</string>
        </colorrole>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+         <color alpha="128">
+          <red>2</red>
+          <green>160</green>
+          <blue>70</blue>
          </color>
         </brush>
        </colorrole>
@@ -13926,9 +13848,9 @@ background-color: rgb(0, 0, 0);</string>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
          <color alpha="128">
-          <red>243</red>
-          <green>162</green>
-          <blue>0</blue>
+          <red>28</red>
+          <green>113</green>
+          <blue>216</blue>
          </color>
         </brush>
        </colorrole>
@@ -14072,9 +13994,9 @@ background-color: rgb(0, 0, 0);</string>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
          <color alpha="128">
-          <red>243</red>
-          <green>162</green>
-          <blue>0</blue>
+          <red>28</red>
+          <green>113</green>
+          <blue>216</blue>
          </color>
         </brush>
        </colorrole>
@@ -14218,9 +14140,9 @@ background-color: rgb(0, 0, 0);</string>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
          <color alpha="128">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>28</red>
+          <green>113</green>
+          <blue>216</blue>
          </color>
         </brush>
        </colorrole>
@@ -14914,10 +14836,10 @@ background-color: rgb(0, 0, 0); </string>
        </colorrole>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+         <color alpha="128">
+          <red>2</red>
+          <green>160</green>
+          <blue>70</blue>
          </color>
         </brush>
        </colorrole>
@@ -15060,10 +14982,10 @@ background-color: rgb(0, 0, 0); </string>
        </colorrole>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+         <color alpha="128">
+          <red>2</red>
+          <green>160</green>
+          <blue>70</blue>
          </color>
         </brush>
        </colorrole>
@@ -15206,10 +15128,10 @@ background-color: rgb(0, 0, 0); </string>
        </colorrole>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+         <color alpha="128">
+          <red>2</red>
+          <green>160</green>
+          <blue>70</blue>
          </color>
         </brush>
        </colorrole>
@@ -15910,9 +15832,9 @@ background-color: rgb(0, 0, 0);</string>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
          <color alpha="128">
-          <red>243</red>
-          <green>162</green>
-          <blue>0</blue>
+          <red>28</red>
+          <green>113</green>
+          <blue>216</blue>
          </color>
         </brush>
        </colorrole>
@@ -16056,9 +15978,9 @@ background-color: rgb(0, 0, 0);</string>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
          <color alpha="128">
-          <red>243</red>
-          <green>162</green>
-          <blue>0</blue>
+          <red>28</red>
+          <green>113</green>
+          <blue>216</blue>
          </color>
         </brush>
        </colorrole>
@@ -16202,9 +16124,9 @@ background-color: rgb(0, 0, 0);</string>
        <colorrole role="PlaceholderText">
         <brush brushstyle="SolidPattern">
          <color alpha="128">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>28</red>
+          <green>113</green>
+          <blue>216</blue>
          </color>
         </brush>
        </colorrole>
