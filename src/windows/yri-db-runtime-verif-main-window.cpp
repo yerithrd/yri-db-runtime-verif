@@ -1599,6 +1599,8 @@ void *YRIDBRUNTIMEVERIF_MainWindow::VIEW_current_RUNTIME_MONITOR()
 
         emit SIGNAL_INCREMENT_PROGRESS_BAR(90);
 	}
+
+	return (void *) this;
 }
 
 
@@ -1961,6 +1963,36 @@ bool YRIDBRUNTIMEVERIF_MainWindow::PRINT_event_log_excerpt_till_selected_SQL_eve
     }
 
     return PRINT_event_log_excerpt(a_row_FOR_pdf_printing_max);
+}
+
+
+virtual void *PRINT_console_debugging_Log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
+{
+    if (0 != a_row_FOR_pdf_printing_max)
+    {
+        PRINT_console_debugging_Log_excerpt(*a_row_FOR_pdf_printing_max)
+    }
+    else
+    {
+        PRINT_console_debugging_Log_excerpt();
+    }
+
+    return (void *) this;
+}
+
+
+virtual void *PRINT_event_log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
+{
+    if (0 != a_row_FOR_pdf_printing_max)
+    {
+        PRINT_event_log_excerpt(*a_row_FOR_pdf_printing_max)
+    }
+    else
+    {
+        PRINT_event_log_excerpt();
+    }
+
+    return (void *) this;
 }
 
 
@@ -2494,18 +2526,20 @@ void *YRIDBRUNTIMEVERIF_MainWindow::ACTION_USER_GUIDE_method()
 
 	emit SIGNAL_INCREMENT_PROGRESS_BAR(12);
 
-	QProcess aProcess;
-
 	progArguments << "/usr/share/doc/yri-db-runtime-verif/YERITH_QVGE.pdf";
+
 
 	emit SIGNAL_INCREMENT_PROGRESS_BAR(30);
 
-    YRIDBRUNTIMEVERIF_Process::startDetached
-            (aProcess,
-             YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader,
+
+    QProcess::startDetached
+            (YRI_DB_RUNTIME_VERIF_Config::pathToPdfReader,
              progArguments);
 
+
     emit SIGNAL_INCREMENT_PROGRESS_BAR(98);
+
+    return (void *) this;
 }
 
 

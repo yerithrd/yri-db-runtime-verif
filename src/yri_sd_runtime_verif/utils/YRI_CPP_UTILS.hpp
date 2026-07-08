@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_UTILS.hpp
  *
- *      Author: D.ENG. PR. PROF. Xavier Noundou
+ *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_UTILS_HPP_
