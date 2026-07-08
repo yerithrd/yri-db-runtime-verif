@@ -22,39 +22,39 @@ class YRI_CPP_MONITOR;
 
 class YERITH_QVGE_sample_PAPER_extended_version_PROPERY : public YRI_DB_RUNTIME_VERIF_analysis_Checking_TESTING
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
 
-static void YRI_CALL_BACK_final_state(YRI_CPP_MONITOR 		*a_runtime_monitor,
-YRI_CPP_MONITOR_EDGE 	*an_EDGE_leading_TO_error_FINAL_state);
+    static void YRI_CALL_BACK_final_state(YRI_CPP_MONITOR 		*a_runtime_monitor,
+                                          YRI_CPP_MONITOR_EDGE 	*an_EDGE_leading_TO_error_FINAL_state);
 
-YERITH_QVGE_sample_PAPER_extended_version_PROPERY();
+    YERITH_QVGE_sample_PAPER_extended_version_PROPERY();
 
-YERITH_QVGE_sample_PAPER_extended_version_PROPERY(YRI_DB_RUNTIME_VERIF_Logger *logger);
+    YERITH_QVGE_sample_PAPER_extended_version_PROPERY(YRI_DB_RUNTIME_VERIF_Logger *logger);
 
-virtual inline ~YERITH_QVGE_sample_PAPER_extended_version_PROPERY()
-{
-}
+    virtual inline ~YERITH_QVGE_sample_PAPER_extended_version_PROPERY()
+    {
+    }
 
 public slots:
 
-/**
-* THIS METHOD PERFORMS EFFECTIVE TEMPORAL LINEAR
-* LOGIC CHECK AFTER A STATE EVENT (or system event)
-* could be achieved by the runtime monitor system !
-*
-* A SERIOUS VERIFICATION CLIENT MUST OVERRIDE THIS
-* METHOD !
-*/
-virtual bool DO_VERIFY_AND_or_CHECK_ltl_PROPERTY(
-QString sql_table_ADDED_with_file_AND_line_number,
-uint	sql_record_qty_MODIFIED,
-YRI_CPP_UTILS::SQL_CONSTANT_IDENTIFIER cur_SQL_command =
-YRI_CPP_UTILS::SQL_CONSTANT_IDENTIFIER::UNDEFINED_SQL_COMMAND);
+    /**
+    * THIS METHOD PERFORMS EFFECTIVE TEMPORAL LINEAR
+    * LOGIC CHECK AFTER A STATE EVENT (or system event)
+    * could be achieved by the runtime monitor system !
+    *
+    * A SERIOUS VERIFICATION CLIENT MUST OVERRIDE THIS
+    * METHOD !
+    */
+    virtual bool DO_VERIFY_AND_or_CHECK_ltl_PROPERTY(
+        QString sql_table_ADDED_with_file_AND_line_number,
+        uint	sql_record_qty_MODIFIED,
+        YRI_CPP_UTILS::SQL_CONSTANT_IDENTIFIER cur_SQL_command =
+            YRI_CPP_UTILS::SQL_CONSTANT_IDENTIFIER::UNDEFINED_SQL_COMMAND);
 
 
-bool YRI_SQL_SELECT_departements_produits___Event(); 
+    bool YRI_SQL_SELECT_departements_produits___Event();
 
 };
 

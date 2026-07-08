@@ -139,10 +139,6 @@ bool YERITH_QVGE_sample_PAPER_extended_version_PROPERY::DO_VERIFY_AND_or_CHECK_l
         break;
 
     case YRI_CPP_UTILS::SELECT:
-        if (YRI_DB_RUNTIME_VERIF_Utils::isEqualsCaseInsensitive(sql_table_name, "stocks"))
-        {
-            return YRI_SQL_SELECT_departements_produits___Event();
-        }
         break;
 
     case YRI_CPP_UTILS::UPDATE:
