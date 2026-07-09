@@ -1966,11 +1966,11 @@ bool YRIDBRUNTIMEVERIF_MainWindow::PRINT_event_log_excerpt_till_selected_SQL_eve
 }
 
 
-virtual void *PRINT_console_debugging_Log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
+void *YRIDBRUNTIMEVERIF_MainWindow::PRINT_console_debugging_Log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
 {
     if (0 != a_row_FOR_pdf_printing_max)
     {
-        PRINT_console_debugging_Log_excerpt(*a_row_FOR_pdf_printing_max)
+        PRINT_console_debugging_Log_excerpt(*a_row_FOR_pdf_printing_max);
     }
     else
     {
@@ -1981,11 +1981,11 @@ virtual void *PRINT_console_debugging_Log_excerpt__POINTER_PARAMETER(int *a_row_
 }
 
 
-virtual void *PRINT_event_log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
+void *YRIDBRUNTIMEVERIF_MainWindow::PRINT_event_log_excerpt__POINTER_PARAMETER(int *a_row_FOR_pdf_printing_max)
 {
     if (0 != a_row_FOR_pdf_printing_max)
     {
-        PRINT_event_log_excerpt(*a_row_FOR_pdf_printing_max)
+        PRINT_event_log_excerpt(*a_row_FOR_pdf_printing_max);
     }
     else
     {
