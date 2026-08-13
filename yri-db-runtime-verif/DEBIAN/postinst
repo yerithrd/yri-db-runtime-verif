@@ -7,7 +7,8 @@ echo -e "export YRI_DB_RUNTIME_VERIF_FILE_ABSOLUTEPATH_CONFIGURATION_PROPERTY_FI
 
 sh /etc/environment
 
-ln -s /lib/systemd/system/yri-db-runtime-verif.service /etc/systemd/system/yri-db-runtime-verif.service
+#ln -s /lib/systemd/system/yri-db-runtime-verif.service /etc/systemd/system/yri-db-runtime-verif.service
+cp /lib/systemd/system/yri-db-runtime-verif.service /etc/systemd/system/yri-db-runtime-verif.service
 
 systemctl daemon-reload &
 
