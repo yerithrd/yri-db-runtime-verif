@@ -110,7 +110,6 @@ private:
 
 
 #define QDEBUG_CONSOLE_RAW_OUTPUT_FOR_gtk_gui(STR)              \
-     qDebug() << STR;                                           \
      if (0 != YRI_DB_RUNTIME_VERIF_Logger::_ALL_WINDOWS) {      \
         YRI_DB_RUNTIME_VERIF_Logger::_ALL_WINDOWS->_yrdbruntimeverif_main_Window->ADD_ITEM_Console_Raw(STR); \
      }
