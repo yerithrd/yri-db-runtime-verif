@@ -360,7 +360,7 @@ protected slots:
     {
     	QMessageBox::information(toolBar_mainWindow_YRI_DB_RUNTIME_VERIF,
     							 "ABOUT THIS SOFTWARE (YRI-DB-RUNTIME-VERIF)",
-    							 QObject::tr("DEVELOPED by D.ENG. PR. PROF. Xavier Noundou."));
+    							 QObject::tr("DEVELOPED by PR.  PROF.  DR.-ING. Xavier Noundou."));
     }
 
 
