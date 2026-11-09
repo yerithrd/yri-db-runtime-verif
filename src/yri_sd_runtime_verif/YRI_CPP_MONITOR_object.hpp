@@ -49,7 +49,7 @@ protected:
 
     inline virtual QString SIMULATE_QSTRING_NEXT_ID()
     {
-        return QString::number(1 + MONITOR_OBJECTS_CURRENT_ID_GENERATOR);
+        return QString(QString::number(1 + MONITOR_OBJECTS_CURRENT_ID_GENERATOR));
     }
 
     inline virtual int get_next_id()

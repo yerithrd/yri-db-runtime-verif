@@ -303,6 +303,19 @@ public:
     }
 
 
+    virtual inline void Set_SQL_RECOVERY_QUERY_DB_TABLE
+                         (QString A_SQL_RECOVERY_QUERY_DB_TABLE)
+    {
+        _SQL_RECOVERY_QUERY_DB_TABLE = A_SQL_RECOVERY_QUERY_DB_TABLE;
+    }
+
+
+    virtual inline QString Get_SQL_RECOVERY_QUERY_DB_TABLE()
+    {
+        return _SQL_RECOVERY_QUERY_DB_TABLE;
+    }
+
+
     virtual inline void Set_SQL_RECOVERY_QUERY_STRING
                          (QString A_SQL_RECOVERY_QUERY_STRING_VERBATIM)
     {
@@ -403,6 +416,8 @@ protected:
     bool _start_state;
 
     bool _final_state;
+
+    QString _SQL_RECOVERY_QUERY_DB_TABLE;
 
     QString _SQL_RECOVERY_QUERY_STRING_VERBATIM;
 
