@@ -380,6 +380,9 @@ public:
     }
 
 
+    virtual QString print_to_dot_file(bool PRINT_WITH_SQL_EVENT_LOG_TOKEN = false);
+
+
     virtual void print();
 
 
