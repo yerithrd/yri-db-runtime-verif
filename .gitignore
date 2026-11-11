@@ -25,7 +25,6 @@ ui_*
 *.lof 
 *.out 
 *.toc
-*.xgr
 *.synctex.gz
 *.layout
 *.cbp
